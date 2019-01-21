@@ -1,0 +1,501 @@
+Archive member included because of file (symbol)
+
+d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+                              d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm328p.o (exit)
+d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
+                              main.o (__do_copy_data)
+d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
+                              main.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+DATA_CO             0x2               main.o
+key                 0x1               main.o
+
+Discarded input sections
+
+ .data          0x00000000        0x0 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm328p.o
+ .bss           0x00000000        0x0 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm328p.o
+ .text          0x00000000        0x0 main.o
+ .data          0x00000000        0x0 main.o
+ .bss           0x00000000        0x0 main.o
+ .text          0x00000000        0x0 Perif/UART_sw.o
+ .data          0x00000000        0x0 Perif/UART_sw.o
+ .bss           0x00000000        0x0 Perif/UART_sw.o
+ .text.receiveUart0
+                0x00000000       0x28 Perif/UART_sw.o
+ .text.sendString0
+                0x00000000       0x1e Perif/UART_sw.o
+ .text.sendString1
+                0x00000000       0x1e Perif/UART_sw.o
+ .text.receiveUart2
+                0x00000000       0x28 Perif/UART_sw.o
+ .text.sendByte2
+                0x00000000       0x44 Perif/UART_sw.o
+ .text.sendString2
+                0x00000000       0x1e Perif/UART_sw.o
+ .text.receiveUart3
+                0x00000000       0x28 Perif/UART_sw.o
+ .text.sendByte3
+                0x00000000       0x44 Perif/UART_sw.o
+ .text.sendString3
+                0x00000000       0x1e Perif/UART_sw.o
+ .text.receiveUart4
+                0x00000000       0x28 Perif/UART_sw.o
+ .text.sendByte4
+                0x00000000       0x44 Perif/UART_sw.o
+ .text.sendString4
+                0x00000000       0x1e Perif/UART_sw.o
+ .text          0x00000000        0x0 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+ .data          0x00000000        0x0 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+ .bss           0x00000000        0x0 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000000        0x0 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
+ .data          0x00000000        0x0 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00000000        0x0 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000        0x0 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000000        0x0 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
+ .data          0x00000000        0x0 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00000000        0x0 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000000        0x0 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm328p.o
+LOAD main.o
+LOAD Perif/UART_sw.o
+START GROUP
+LOAD d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5\libm.a
+END GROUP
+LOAD d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a
+LOAD d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5\libc.a
+LOAD d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0x750
+ *(.vectors)
+ .vectors       0x00000000       0x68 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm328p.o
+                0x00000000                __vector_default
+                0x00000000                __vectors
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x00000068                . = ALIGN (0x2)
+                0x00000068                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000068        0x0 linker stubs
+ *(.trampolines*)
+                0x00000068                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000068                __ctors_start = .
+ *(.ctors)
+                0x00000068                __ctors_end = .
+                0x00000068                __dtors_start = .
+ *(.dtors)
+                0x00000068                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000068        0x0 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm328p.o
+                0x00000068                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000068        0xc d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm328p.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000074       0x16 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
+                0x00000074                __do_copy_data
+ .init4         0x0000008a       0x10 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
+                0x0000008a                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000009a        0x8 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm328p.o
+ *(.init9)
+ *(.text)
+ .text          0x000000a2        0x4 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm328p.o
+                0x000000a2                __vector_22
+                0x000000a2                __vector_24
+                0x000000a2                __vector_12
+                0x000000a2                __bad_interrupt
+                0x000000a2                __vector_6
+                0x000000a2                __vector_23
+                0x000000a2                __vector_25
+                0x000000a2                __vector_11
+                0x000000a2                __vector_13
+                0x000000a2                __vector_17
+                0x000000a2                __vector_7
+                0x000000a2                __vector_5
+                0x000000a2                __vector_9
+                0x000000a2                __vector_2
+                0x000000a2                __vector_21
+                0x000000a2                __vector_15
+                0x000000a2                __vector_8
+                0x000000a2                __vector_10
+                0x000000a2                __vector_16
+                0x000000a2                __vector_20
+                0x000000a6                . = ALIGN (0x2)
+ *(.text.*)
+ .text.button_Init
+                0x000000a6        0xe main.o
+                0x000000a6                button_Init
+ .text.CO2getData
+                0x000000b4       0xa2 main.o
+                0x000000b4                CO2getData
+ .text.__vector_1
+                0x00000156       0x1e main.o
+                0x00000156                __vector_1
+ .text.main     0x00000174       0x5e main.o
+                0x00000174                main
+ .text.uartInit
+                0x000001d2       0xa4 Perif/UART_sw.o
+                0x000001d2                uartInit
+ .text.__vector_3
+                0x00000276       0xa0 Perif/UART_sw.o
+                0x00000276                __vector_3
+ .text.__vector_4
+                0x00000316       0xa0 Perif/UART_sw.o
+                0x00000316                __vector_4
+ .text.__vector_14
+                0x000003b6      0x266 Perif/UART_sw.o
+                0x000003b6                __vector_14
+ .text.__vector_19
+                0x0000061c       0x56 Perif/UART_sw.o
+                0x0000061c                __vector_19
+ .text.__vector_18
+                0x00000672       0x46 Perif/UART_sw.o
+                0x00000672                __vector_18
+ .text.sendByte0
+                0x000006b8       0x2a Perif/UART_sw.o
+                0x000006b8                sendByte0
+ .text.receiveUart1
+                0x000006e2       0x28 Perif/UART_sw.o
+                0x000006e2                receiveUart1
+ .text.sendByte1
+                0x0000070a       0x42 Perif/UART_sw.o
+                0x0000070a                sendByte1
+                0x0000074c                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x0000074c        0x0 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+                0x0000074c                _exit
+                0x0000074c                exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x0000074c        0x4 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00000750                _etext = .
+
+.data           0x00800100        0xa load address 0x00000750
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ .rodata.C.3.2130
+                0x00800100        0x9 main.o
+ *(.gnu.linkonce.d*)
+                0x0080010a                . = ALIGN (0x2)
+ *fill*         0x00800109        0x1 00
+                0x0080010a                _edata = .
+                0x0080010a                PROVIDE (__data_end, .)
+
+.bss            0x0080010a       0x46
+                0x0080010a                PROVIDE (__bss_start, .)
+ *(.bss)
+ *(.bss*)
+ .bss.Rx        0x0080010a        0x1 Perif/UART_sw.o
+                0x0080010a                Rx
+ .bss.Tx        0x0080010b        0x1 Perif/UART_sw.o
+                0x0080010b                Tx
+ .bss.estado    0x0080010c        0x1 Perif/UART_sw.o
+ .bss.TxData    0x0080010d        0x1 Perif/UART_sw.o
+ .bss.TxBitCount
+                0x0080010e        0x1 Perif/UART_sw.o
+ .bss.Rx4Head   0x0080010f        0x1 Perif/UART_sw.o
+ .bss.Rx4Tail   0x00800110        0x1 Perif/UART_sw.o
+ .bss.BufferRx4
+                0x00800111        0x8 Perif/UART_sw.o
+ .bss.Rx3Head   0x00800119        0x1 Perif/UART_sw.o
+ .bss.Rx3Tail   0x0080011a        0x1 Perif/UART_sw.o
+ .bss.BufferRx3
+                0x0080011b        0x8 Perif/UART_sw.o
+ .bss.Rx2Head   0x00800123        0x1 Perif/UART_sw.o
+ .bss.Rx2Tail   0x00800124        0x1 Perif/UART_sw.o
+ .bss.BufferRx2
+                0x00800125        0x8 Perif/UART_sw.o
+ .bss.Rx1Head   0x0080012d        0x1 Perif/UART_sw.o
+ .bss.Rx1Tail   0x0080012e        0x1 Perif/UART_sw.o
+ .bss.BufferRx1
+                0x0080012f        0x8 Perif/UART_sw.o
+ .bss.Tx0Head   0x00800137        0x1 Perif/UART_sw.o
+ .bss.Tx0Tail   0x00800138        0x1 Perif/UART_sw.o
+ .bss.BufferTx0
+                0x00800139        0x8 Perif/UART_sw.o
+ .bss.Rx0Head   0x00800141        0x1 Perif/UART_sw.o
+ .bss.Rx0Tail   0x00800142        0x1 Perif/UART_sw.o
+ .bss.BufferRx0
+                0x00800143        0x8 Perif/UART_sw.o
+ .bss.RxData    0x0080014b        0x1 Perif/UART_sw.o
+ .bss.RxBitCount
+                0x0080014c        0x1 Perif/UART_sw.o
+ *(COMMON)
+ COMMON         0x0080014d        0x3 main.o
+                0x0080014d                DATA_CO
+                0x0080014f                key
+                0x00800150                PROVIDE (__bss_end, .)
+                0x00000750                __data_load_start = LOADADDR (.data)
+                0x0000075a                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800150        0x0
+                0x00800150                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800150                PROVIDE (__noinit_end, .)
+                0x00800150                _end = .
+                0x00800150                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab           0x00000000      0x6cc
+ *(.stab)
+ .stab          0x00000000      0x6cc d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm328p.o
+
+.stabstr        0x00000000       0x97
+ *(.stabstr)
+ .stabstr       0x00000000       0x97 d:/aplicaciones/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm328p.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0xf8
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x38 main.o
+ .debug_aranges
+                0x00000038       0xc0 Perif/UART_sw.o
+
+.debug_pubnames
+                0x00000000      0x1c3
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x5d main.o
+ .debug_pubnames
+                0x0000005d      0x166 Perif/UART_sw.o
+
+.debug_info     0x00000000      0x851
+ *(.debug_info)
+ .debug_info    0x00000000      0x24c main.o
+ .debug_info    0x0000024c      0x605 Perif/UART_sw.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x318
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x1c0 main.o
+ .debug_abbrev  0x000001c0      0x158 Perif/UART_sw.o
+
+.debug_line     0x00000000      0xddb
+ *(.debug_line)
+ .debug_line    0x00000000      0x289 main.o
+ .debug_line    0x00000289      0xb52 Perif/UART_sw.o
+
+.debug_frame    0x00000000      0x1b0
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x50 main.o
+ .debug_frame   0x00000050      0x160 Perif/UART_sw.o
+
+.debug_str      0x00000000      0x381
+ *(.debug_str)
+ .debug_str     0x00000000      0x149 main.o
+                                0x17d (size before relaxing)
+ .debug_str     0x00000149      0x238 Perif/UART_sw.o
+                                0x309 (size before relaxing)
+
+.debug_loc      0x00000000      0x2c0
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x28 main.o
+ .debug_loc     0x00000028      0x298 Perif/UART_sw.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(FinalContaminacion.elf elf32-avr)
+LOAD linker stubs
+
+.debug_pubtypes
+                0x00000000       0x6f
+ .debug_pubtypes
+                0x00000000       0x38 main.o
+ .debug_pubtypes
+                0x00000038       0x37 Perif/UART_sw.o
+
+.debug_ranges   0x00000000       0xd8
+ .debug_ranges  0x00000000       0x28 main.o
+ .debug_ranges  0x00000028       0xb0 Perif/UART_sw.o

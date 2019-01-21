@@ -1,0 +1,1368 @@
+
+v0_CO2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000000a  00800100  00000752  000007e6  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000752  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000046  0080010a  0080010a  000007f0  2**0
+                  ALLOC
+  3 .stab         000006cc  00000000  00000000  000007f0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000097  00000000  00000000  00000ebc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_aranges 00000130  00000000  00000000  00000f53  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_pubnames 000001f5  00000000  00000000  00001083  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   0000094f  00000000  00000000  00001278  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 000003bb  00000000  00000000  00001bc7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   00000f7a  00000000  00000000  00001f82  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_frame  000001e0  00000000  00000000  00002efc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_str    000003b0  00000000  00000000  000030dc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_loc    000002c0  00000000  00000000  0000348c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_pubtypes 000000c5  00000000  00000000  0000374c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_ranges 000000f0  00000000  00000000  00003811  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 77 00 	jmp	0xee	; 0xee <__vector_1>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 3c 01 	jmp	0x278	; 0x278 <__vector_3>
+  10:	0c 94 8c 01 	jmp	0x318	; 0x318 <__vector_4>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 dc 01 	jmp	0x3b8	; 0x3b8 <__vector_14>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 3a 03 	jmp	0x674	; 0x674 <__vector_18>
+  4c:	0c 94 0f 03 	jmp	0x61e	; 0x61e <__vector_19>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	e2 e5       	ldi	r30, 0x52	; 82
+  7c:	f7 e0       	ldi	r31, 0x07	; 7
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	aa 30       	cpi	r26, 0x0A	; 10
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	11 e0       	ldi	r17, 0x01	; 1
+  8c:	aa e0       	ldi	r26, 0x0A	; 10
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	a0 35       	cpi	r26, 0x50	; 80
+  96:	b1 07       	cpc	r27, r17
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 53 00 	call	0xa6	; 0xa6 <main>
+  9e:	0c 94 a7 03 	jmp	0x74e	; 0x74e <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <main>:
+uint8_t key;
+uint16_t DATA_CO;
+
+
+int main(void)
+{
+  a6:	cf 93       	push	r28
+  a8:	df 93       	push	r29
+	uartInit(1,0);		// Software UART
+  aa:	81 e0       	ldi	r24, 0x01	; 1
+  ac:	60 e0       	ldi	r22, 0x00	; 0
+  ae:	0e 94 ea 00 	call	0x1d4	; 0x1d4 <uartInit>
+	button_Init();		// Boton para muestrear
+  b2:	0e 94 86 00 	call	0x10c	; 0x10c <button_Init>
+	LED_INIT();			// Led debug
+  b6:	57 9a       	sbi	0x0a, 7	; 10
+	sei();
+  b8:	78 94       	sei
+
+	/* Debug */
+	led_debug();		// 3 segundos encendido
+  ba:	0e 94 8d 00 	call	0x11a	; 0x11a <led_debug>
+			DATA_CO = CO2getData();
+			LED_ON();
+
+			/* Debug */
+			sendByte0(DATA_CO>>8);
+			sendByte0(DATA_CO);
+  be:	cd e4       	ldi	r28, 0x4D	; 77
+  c0:	d1 e0       	ldi	r29, 0x01	; 1
+	led_debug();		// 3 segundos encendido
+
+	while (1) 
+	{
+		/* Sensores */
+		if(key == 1)
+  c2:	80 91 4f 01 	lds	r24, 0x014F
+  c6:	81 30       	cpi	r24, 0x01	; 1
+  c8:	81 f4       	brne	.+32     	; 0xea <main+0x44>
+		{
+			key = 0;
+  ca:	10 92 4f 01 	sts	0x014F, r1
+	
+			/* CO2 */
+			DATA_CO = CO2getData();
+  ce:	0e 94 99 00 	call	0x132	; 0x132 <CO2getData>
+  d2:	90 93 4e 01 	sts	0x014E, r25
+  d6:	80 93 4d 01 	sts	0x014D, r24
+			LED_ON();
+  da:	5f 9a       	sbi	0x0b, 7	; 11
+
+			/* Debug */
+			sendByte0(DATA_CO>>8);
+  dc:	80 91 4e 01 	lds	r24, 0x014E
+  e0:	0e 94 5d 03 	call	0x6ba	; 0x6ba <sendByte0>
+			sendByte0(DATA_CO);
+  e4:	88 81       	ld	r24, Y
+  e6:	0e 94 5d 03 	call	0x6ba	; 0x6ba <sendByte0>
+
+		}
+		LED_OFF();
+  ea:	5f 98       	cbi	0x0b, 7	; 11
+		
+	}
+  ec:	ea cf       	rjmp	.-44     	; 0xc2 <main+0x1c>
+
+000000ee <__vector_1>:
+	return 0;
+}
+
+
+ISR(INT0_vect)
+{
+  ee:	1f 92       	push	r1
+  f0:	0f 92       	push	r0
+  f2:	0f b6       	in	r0, 0x3f	; 63
+  f4:	0f 92       	push	r0
+  f6:	11 24       	eor	r1, r1
+  f8:	8f 93       	push	r24
+	key = 1;
+  fa:	81 e0       	ldi	r24, 0x01	; 1
+  fc:	80 93 4f 01 	sts	0x014F, r24
+}
+ 100:	8f 91       	pop	r24
+ 102:	0f 90       	pop	r0
+ 104:	0f be       	out	0x3f, r0	; 63
+ 106:	0f 90       	pop	r0
+ 108:	1f 90       	pop	r1
+ 10a:	18 95       	reti
+
+0000010c <button_Init>:
+
+/* Funciones e interrupciones */
+void button_Init(void)
+{
+	/* Rising Edge */
+	EICRA |= (2<<ISC00);
+ 10c:	e9 e6       	ldi	r30, 0x69	; 105
+ 10e:	f0 e0       	ldi	r31, 0x00	; 0
+ 110:	80 81       	ld	r24, Z
+ 112:	82 60       	ori	r24, 0x02	; 2
+ 114:	80 83       	st	Z, r24
+	/* Activa INT0*/
+	EIMSK |= (1<< INT0);
+ 116:	e8 9a       	sbi	0x1d, 0	; 29
+}
+ 118:	08 95       	ret
+
+0000011a <led_debug>:
+
+void led_debug(void)
+{
+	LED_ON();
+ 11a:	5f 9a       	sbi	0x0b, 7	; 11
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 11c:	8f ef       	ldi	r24, 0xFF	; 255
+ 11e:	9d e3       	ldi	r25, 0x3D	; 61
+ 120:	a9 e4       	ldi	r26, 0x49	; 73
+ 122:	81 50       	subi	r24, 0x01	; 1
+ 124:	90 40       	sbci	r25, 0x00	; 0
+ 126:	a0 40       	sbci	r26, 0x00	; 0
+ 128:	e1 f7       	brne	.-8      	; 0x122 <led_debug+0x8>
+ 12a:	00 c0       	rjmp	.+0      	; 0x12c <led_debug+0x12>
+ 12c:	00 00       	nop
+	_delay_ms(3000);
+	LED_OFF();
+ 12e:	5f 98       	cbi	0x0b, 7	; 11
+ 130:	08 95       	ret
+
+00000132 <CO2getData>:
+#include <avr/interrupt.h>
+#include "sensors.h"
+#include "UART_sw.h"
+
+uint16_t CO2getData()
+{
+ 132:	ef 92       	push	r14
+ 134:	ff 92       	push	r15
+ 136:	0f 93       	push	r16
+ 138:	1f 93       	push	r17
+ 13a:	df 93       	push	r29
+ 13c:	cf 93       	push	r28
+ 13e:	cd b7       	in	r28, 0x3d	; 61
+ 140:	de b7       	in	r29, 0x3e	; 62
+ 142:	62 97       	sbiw	r28, 0x12	; 18
+ 144:	0f b6       	in	r0, 0x3f	; 63
+ 146:	f8 94       	cli
+ 148:	de bf       	out	0x3e, r29	; 62
+ 14a:	0f be       	out	0x3f, r0	; 63
+ 14c:	cd bf       	out	0x3d, r28	; 61
+	uint8_t gasCommand[9] = {GASCOMMAND1, GASCOMMAND2, GASCOMMAND3, GASCOMMAND4, GASCOMMAND5, GASCOMMAND6, GASCOMMAND7, GASCOMMAND8, GASCOMMAND9};
+ 14e:	de 01       	movw	r26, r28
+ 150:	11 96       	adiw	r26, 0x01	; 1
+ 152:	e0 e0       	ldi	r30, 0x00	; 0
+ 154:	f1 e0       	ldi	r31, 0x01	; 1
+ 156:	89 e0       	ldi	r24, 0x09	; 9
+ 158:	01 90       	ld	r0, Z+
+ 15a:	0d 92       	st	X+, r0
+ 15c:	81 50       	subi	r24, 0x01	; 1
+ 15e:	e1 f7       	brne	.-8      	; 0x158 <CO2getData+0x26>
+	uint8_t data[9] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+ 160:	fe 01       	movw	r30, r28
+ 162:	3a 96       	adiw	r30, 0x0a	; 10
+ 164:	89 e0       	ldi	r24, 0x09	; 9
+ 166:	df 01       	movw	r26, r30
+ 168:	1d 92       	st	X+, r1
+ 16a:	8a 95       	dec	r24
+ 16c:	e9 f7       	brne	.-6      	; 0x168 <CO2getData+0x36>
+ 16e:	8e 01       	movw	r16, r28
+ 170:	0f 5f       	subi	r16, 0xFF	; 255
+ 172:	1f 4f       	sbci	r17, 0xFF	; 255
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include "sensors.h"
+#include "UART_sw.h"
+
+uint16_t CO2getData()
+ 174:	7f 01       	movw	r14, r30
+	uint8_t gasCommand[9] = {GASCOMMAND1, GASCOMMAND2, GASCOMMAND3, GASCOMMAND4, GASCOMMAND5, GASCOMMAND6, GASCOMMAND7, GASCOMMAND8, GASCOMMAND9};
+	uint8_t data[9] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+	uint16_t gasC = 0;
+	for(int i = 0; i<9; i++)
+	{
+		sendByte1(gasCommand[i]);
+ 176:	f8 01       	movw	r30, r16
+ 178:	81 91       	ld	r24, Z+
+ 17a:	8f 01       	movw	r16, r30
+ 17c:	0e 94 86 03 	call	0x70c	; 0x70c <sendByte1>
+uint16_t CO2getData()
+{
+	uint8_t gasCommand[9] = {GASCOMMAND1, GASCOMMAND2, GASCOMMAND3, GASCOMMAND4, GASCOMMAND5, GASCOMMAND6, GASCOMMAND7, GASCOMMAND8, GASCOMMAND9};
+	uint8_t data[9] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+	uint16_t gasC = 0;
+	for(int i = 0; i<9; i++)
+ 180:	0e 15       	cp	r16, r14
+ 182:	1f 05       	cpc	r17, r15
+ 184:	c1 f7       	brne	.-16     	; 0x176 <CO2getData+0x44>
+ 186:	8e 01       	movw	r16, r28
+ 188:	06 5f       	subi	r16, 0xF6	; 246
+ 18a:	1f 4f       	sbci	r17, 0xFF	; 255
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include "sensors.h"
+#include "UART_sw.h"
+
+uint16_t CO2getData()
+ 18c:	0f 2e       	mov	r0, r31
+ 18e:	f3 e1       	ldi	r31, 0x13	; 19
+ 190:	ef 2e       	mov	r14, r31
+ 192:	ff 24       	eor	r15, r15
+ 194:	f0 2d       	mov	r31, r0
+ 196:	ec 0e       	add	r14, r28
+ 198:	fd 1e       	adc	r15, r29
+		sendByte1(gasCommand[i]);
+	}
+	
+	for(int i = 0; i<9; i++)
+	{
+		data[i] = receiveUart1();
+ 19a:	0e 94 72 03 	call	0x6e4	; 0x6e4 <receiveUart1>
+ 19e:	d8 01       	movw	r26, r16
+ 1a0:	8d 93       	st	X+, r24
+ 1a2:	8d 01       	movw	r16, r26
+	for(int i = 0; i<9; i++)
+	{
+		sendByte1(gasCommand[i]);
+	}
+	
+	for(int i = 0; i<9; i++)
+ 1a4:	ae 15       	cp	r26, r14
+ 1a6:	bf 05       	cpc	r27, r15
+ 1a8:	c1 f7       	brne	.-16     	; 0x19a <CO2getData+0x68>
+	{
+		data[i] = receiveUart1();
+	}
+
+	gasC = (data[2]<<8) | (data[3]);
+ 1aa:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 1ac:	80 e0       	ldi	r24, 0x00	; 0
+ 1ae:	2d 85       	ldd	r18, Y+13	; 0x0d
+ 1b0:	30 e0       	ldi	r19, 0x00	; 0
+ 1b2:	28 2b       	or	r18, r24
+ 1b4:	39 2b       	or	r19, r25
+	return gasC;
+ 1b6:	82 2f       	mov	r24, r18
+ 1b8:	93 2f       	mov	r25, r19
+ 1ba:	62 96       	adiw	r28, 0x12	; 18
+ 1bc:	0f b6       	in	r0, 0x3f	; 63
+ 1be:	f8 94       	cli
+ 1c0:	de bf       	out	0x3e, r29	; 62
+ 1c2:	0f be       	out	0x3f, r0	; 63
+ 1c4:	cd bf       	out	0x3d, r28	; 61
+ 1c6:	cf 91       	pop	r28
+ 1c8:	df 91       	pop	r29
+ 1ca:	1f 91       	pop	r17
+ 1cc:	0f 91       	pop	r16
+ 1ce:	ff 90       	pop	r15
+ 1d0:	ef 90       	pop	r14
+ 1d2:	08 95       	ret
+
+000001d4 <uartInit>:
+	/*****************************************/
+	/*              UART - AVR               */
+	/*****************************************/
+	
+	
+	UBRR0H = (MYUBRR>>8);
+ 1d4:	10 92 c5 00 	sts	0x00C5, r1
+	UBRR0L = MYUBRR;
+ 1d8:	97 e6       	ldi	r25, 0x67	; 103
+ 1da:	90 93 c4 00 	sts	0x00C4, r25
+	
+	/* Activa Modo 2X */
+	UCSR0A = (1<<U2X0);
+ 1de:	82 e0       	ldi	r24, 0x02	; 2
+ 1e0:	80 93 c0 00 	sts	0x00C0, r24
+	
+	/* Activa el receptor y transmisor del UART */
+	UCSR0B = ((1 << RXCIE0) | (1 << RXEN0) | (1 << TXEN0));
+ 1e4:	28 e9       	ldi	r18, 0x98	; 152
+ 1e6:	20 93 c1 00 	sts	0x00C1, r18
+	
+	/* Frame: 8 bits de datos 1 stop bit */
+	UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);
+ 1ea:	26 e0       	ldi	r18, 0x06	; 6
+ 1ec:	20 93 c2 00 	sts	0x00C2, r18
+	/*****************************************/
+	/*            UART - Sotware             */
+	/*****************************************/
+	
+	/*Puerto*/
+	sbi(TRXPORT1, RXBIT1);		// RX como entrada. Alta impedancia
+ 1f0:	29 9a       	sbi	0x05, 1	; 5
+	sbi(TRXDDR1, TXBIT1);		// TX como salida.
+ 1f2:	20 9a       	sbi	0x04, 0	; 4
+	setTx1( );                 	// Set the TX line to idle state.
+ 1f4:	28 9a       	sbi	0x05, 0	; 5
+	sbi(TRXPORT2, RXBIT2);		// RX como entrada. Alta impedancia
+ 1f6:	2c 9a       	sbi	0x05, 4	; 5
+	sbi(TRXDDR2, TXBIT2);		// TX como salida.
+ 1f8:	25 9a       	sbi	0x04, 5	; 4
+	setTx2( );                 	// Set the TX line to idle state.
+ 1fa:	2d 9a       	sbi	0x05, 5	; 5
+	sbi(TRXPORT3, RXBIT3);		// RX como entrada. Alta impedancia
+ 1fc:	2a 9a       	sbi	0x05, 2	; 5
+	sbi(TRXDDR3, TXBIT3);		// TX como salida.
+ 1fe:	23 9a       	sbi	0x04, 3	; 4
+	setTx3( );                 	// Set the TX line to idle state.
+ 200:	2b 9a       	sbi	0x05, 3	; 5
+	sbi(TRXPORT4, RXBIT4);		// RX como entrada. Alta impedancia
+ 202:	40 9a       	sbi	0x08, 0	; 8
+	sbi(TRXDDR4, TXBIT4);		// TX como salida.
+ 204:	39 9a       	sbi	0x07, 1	; 7
+	setTx4( );                 	// Set the TX line to idle state.
+ 206:	41 9a       	sbi	0x08, 1	; 8
+
+	/* Timer0 en modo CTC */
+	TCCR0A = (1<< WGM01);
+ 208:	84 bd       	out	0x24, r24	; 36
+	/* Define pre escalador*/
+	TCCR0B = (CS_TIMER << CS00);
+ 20a:	85 bd       	out	0x25, r24	; 37
+	/* Define el baud rate */
+	OCR0A = TICKS2COUNT;
+ 20c:	97 bd       	out	0x27, r25	; 39
+
+	/* Interrupcion por cambio de estado */
+	sbi(PCICR, MSK1_PORT); 			// Interrupciones del puerto
+ 20e:	e8 e6       	ldi	r30, 0x68	; 104
+ 210:	f0 e0       	ldi	r31, 0x00	; 0
+ 212:	80 81       	ld	r24, Z
+ 214:	81 60       	ori	r24, 0x01	; 1
+ 216:	80 83       	st	Z, r24
+	sbi(PC1MSK, RXBIT1);			// Interrupcion del bit
+ 218:	ab e6       	ldi	r26, 0x6B	; 107
+ 21a:	b0 e0       	ldi	r27, 0x00	; 0
+ 21c:	8c 91       	ld	r24, X
+ 21e:	82 60       	ori	r24, 0x02	; 2
+ 220:	8c 93       	st	X, r24
+	sbi(PCICR, MSK2_PORT);			// Interrupciones del puerto
+ 222:	80 81       	ld	r24, Z
+ 224:	81 60       	ori	r24, 0x01	; 1
+ 226:	80 83       	st	Z, r24
+	sbi(PC2MSK, RXBIT2);			// Interrupcion del bit
+ 228:	8c 91       	ld	r24, X
+ 22a:	80 61       	ori	r24, 0x10	; 16
+ 22c:	8c 93       	st	X, r24
+	sbi(PCICR, MSK3_PORT); 			// Interrupciones del puerto
+ 22e:	80 81       	ld	r24, Z
+ 230:	81 60       	ori	r24, 0x01	; 1
+ 232:	80 83       	st	Z, r24
+	sbi(PC3MSK, RXBIT3);			// Interrupcion del bit
+ 234:	8c 91       	ld	r24, X
+ 236:	84 60       	ori	r24, 0x04	; 4
+ 238:	8c 93       	st	X, r24
+	sbi(PCICR, MSK4_PORT);			// Interrupciones del puerto
+ 23a:	80 81       	ld	r24, Z
+ 23c:	82 60       	ori	r24, 0x02	; 2
+ 23e:	80 83       	st	Z, r24
+	sbi(PC4MSK, RXBIT4);			// Interrupcion del bit
+ 240:	ec e6       	ldi	r30, 0x6C	; 108
+ 242:	f0 e0       	ldi	r31, 0x00	; 0
+ 244:	80 81       	ld	r24, Z
+ 246:	81 60       	ori	r24, 0x01	; 1
+ 248:	80 83       	st	Z, r24
+
+	/* Estado inicial = IDLE*/
+	estado = IDLE;
+ 24a:	10 92 0c 01 	sts	0x010C, r1
+	
+	/* Flush buffers de recepción */
+	Rx0Tail = 0;
+ 24e:	10 92 42 01 	sts	0x0142, r1
+	Rx0Head = 0;
+ 252:	10 92 41 01 	sts	0x0141, r1
+	Rx1Tail = 0;
+ 256:	10 92 2e 01 	sts	0x012E, r1
+	Rx1Head = 0;
+ 25a:	10 92 2d 01 	sts	0x012D, r1
+	Rx2Tail = 0;
+ 25e:	10 92 24 01 	sts	0x0124, r1
+	Rx2Head = 0;
+ 262:	10 92 23 01 	sts	0x0123, r1
+	Rx3Tail = 0;
+ 266:	10 92 1a 01 	sts	0x011A, r1
+	Rx3Head = 0;
+ 26a:	10 92 19 01 	sts	0x0119, r1
+	Rx4Tail = 0;
+ 26e:	10 92 10 01 	sts	0x0110, r1
+	Rx4Head = 0;
+ 272:	10 92 0f 01 	sts	0x010F, r1
+	
+}
+ 276:	08 95       	ret
+
+00000278 <__vector_3>:
+/*           Interrupciones              */
+/*****************************************/
+
+/* Subrutina de interrupción para el pin RX */
+ISR(PC1INT_vect)
+{
+ 278:	1f 92       	push	r1
+ 27a:	0f 92       	push	r0
+ 27c:	0f b6       	in	r0, 0x3f	; 63
+ 27e:	0f 92       	push	r0
+ 280:	11 24       	eor	r1, r1
+ 282:	8f 93       	push	r24
+ 284:	ef 93       	push	r30
+ 286:	ff 93       	push	r31
+	/* Cambia de estado*/
+	estado = RECEIVE;
+ 288:	83 e0       	ldi	r24, 0x03	; 3
+ 28a:	80 93 0c 01 	sts	0x010C, r24
+	
+	if (leeRx1() == 0){
+ 28e:	19 99       	sbic	0x03, 1	; 3
+ 290:	09 c0       	rjmp	.+18     	; 0x2a4 <__vector_3+0x2c>
+		Rx = 1;
+ 292:	81 e0       	ldi	r24, 0x01	; 1
+ 294:	80 93 0a 01 	sts	0x010A, r24
+		DISABLE_RX1();
+ 298:	eb e6       	ldi	r30, 0x6B	; 107
+ 29a:	f0 e0       	ldi	r31, 0x00	; 0
+ 29c:	80 81       	ld	r24, Z
+ 29e:	8d 7f       	andi	r24, 0xFD	; 253
+ 2a0:	80 83       	st	Z, r24
+ 2a2:	20 c0       	rjmp	.+64     	; 0x2e4 <__vector_3+0x6c>
+	}
+	else if (leeRx2() == 0){
+ 2a4:	1c 99       	sbic	0x03, 4	; 3
+ 2a6:	09 c0       	rjmp	.+18     	; 0x2ba <__vector_3+0x42>
+		Rx = 2;
+ 2a8:	82 e0       	ldi	r24, 0x02	; 2
+ 2aa:	80 93 0a 01 	sts	0x010A, r24
+		DISABLE_RX2();
+ 2ae:	eb e6       	ldi	r30, 0x6B	; 107
+ 2b0:	f0 e0       	ldi	r31, 0x00	; 0
+ 2b2:	80 81       	ld	r24, Z
+ 2b4:	8f 7e       	andi	r24, 0xEF	; 239
+ 2b6:	80 83       	st	Z, r24
+ 2b8:	15 c0       	rjmp	.+42     	; 0x2e4 <__vector_3+0x6c>
+	}
+	else if (leeRx3() == 0){
+ 2ba:	1a 99       	sbic	0x03, 2	; 3
+ 2bc:	09 c0       	rjmp	.+18     	; 0x2d0 <__vector_3+0x58>
+		Rx = 3;
+ 2be:	83 e0       	ldi	r24, 0x03	; 3
+ 2c0:	80 93 0a 01 	sts	0x010A, r24
+		DISABLE_RX3();
+ 2c4:	eb e6       	ldi	r30, 0x6B	; 107
+ 2c6:	f0 e0       	ldi	r31, 0x00	; 0
+ 2c8:	80 81       	ld	r24, Z
+ 2ca:	8b 7f       	andi	r24, 0xFB	; 251
+ 2cc:	80 83       	st	Z, r24
+ 2ce:	0a c0       	rjmp	.+20     	; 0x2e4 <__vector_3+0x6c>
+	}
+	else if (leeRx4() == 0){
+ 2d0:	30 99       	sbic	0x06, 0	; 6
+ 2d2:	08 c0       	rjmp	.+16     	; 0x2e4 <__vector_3+0x6c>
+		Rx = 4;
+ 2d4:	84 e0       	ldi	r24, 0x04	; 4
+ 2d6:	80 93 0a 01 	sts	0x010A, r24
+		DISABLE_RX4();
+ 2da:	ec e6       	ldi	r30, 0x6C	; 108
+ 2dc:	f0 e0       	ldi	r31, 0x00	; 0
+ 2de:	80 81       	ld	r24, Z
+ 2e0:	8e 7f       	andi	r24, 0xFE	; 254
+ 2e2:	80 83       	st	Z, r24
+	}
+
+	DISABLE_TIMER();
+ 2e4:	ee e6       	ldi	r30, 0x6E	; 110
+ 2e6:	f0 e0       	ldi	r31, 0x00	; 0
+ 2e8:	80 81       	ld	r24, Z
+ 2ea:	8d 7f       	andi	r24, 0xFD	; 253
+ 2ec:	80 83       	st	Z, r24
+	STOP_TIMER();
+ 2ee:	15 bc       	out	0x25, r1	; 37
+
+	TCNT0 = INTERRUPT_EXEC_CYCL;	// Limpia la cuenta. Incluye tiempo para ejecutar la rutina de interrupción.
+ 2f0:	89 e0       	ldi	r24, 0x09	; 9
+ 2f2:	86 bd       	out	0x26, r24	; 38
+
+	START_TIMER();
+ 2f4:	82 e0       	ldi	r24, 0x02	; 2
+ 2f6:	85 bd       	out	0x25, r24	; 37
+	OCR0A = TICKS2WAITONE_HALF;		// Cuenta un periodo y medio para el muestreo.
+ 2f8:	87 e6       	ldi	r24, 0x67	; 103
+ 2fa:	87 bd       	out	0x27, r24	; 39
+
+	RxBitCount = 0;			// Limpia el contador de bits recibidos.
+ 2fc:	10 92 4c 01 	sts	0x014C, r1
+	CLEAN_FLAG_TIMER();
+ 300:	a9 9a       	sbi	0x15, 1	; 21
+	ENABLE_TIMER();
+ 302:	80 81       	ld	r24, Z
+ 304:	82 60       	ori	r24, 0x02	; 2
+ 306:	80 83       	st	Z, r24
+
+	return;
+}
+ 308:	ff 91       	pop	r31
+ 30a:	ef 91       	pop	r30
+ 30c:	8f 91       	pop	r24
+ 30e:	0f 90       	pop	r0
+ 310:	0f be       	out	0x3f, r0	; 63
+ 312:	0f 90       	pop	r0
+ 314:	1f 90       	pop	r1
+ 316:	18 95       	reti
+
+00000318 <__vector_4>:
+}
+#endif
+
+#if (PUERTO1 != PUERTO4)
+ISR(PC4INT_vect)
+{
+ 318:	1f 92       	push	r1
+ 31a:	0f 92       	push	r0
+ 31c:	0f b6       	in	r0, 0x3f	; 63
+ 31e:	0f 92       	push	r0
+ 320:	11 24       	eor	r1, r1
+ 322:	8f 93       	push	r24
+ 324:	ef 93       	push	r30
+ 326:	ff 93       	push	r31
+	/* Cambia de estado*/
+	estado = RECEIVE;
+ 328:	83 e0       	ldi	r24, 0x03	; 3
+ 32a:	80 93 0c 01 	sts	0x010C, r24
+	
+	if (leeRx1() == 0){
+ 32e:	19 99       	sbic	0x03, 1	; 3
+ 330:	09 c0       	rjmp	.+18     	; 0x344 <__vector_4+0x2c>
+		Rx = 1;
+ 332:	81 e0       	ldi	r24, 0x01	; 1
+ 334:	80 93 0a 01 	sts	0x010A, r24
+		DISABLE_RX1();
+ 338:	eb e6       	ldi	r30, 0x6B	; 107
+ 33a:	f0 e0       	ldi	r31, 0x00	; 0
+ 33c:	80 81       	ld	r24, Z
+ 33e:	8d 7f       	andi	r24, 0xFD	; 253
+ 340:	80 83       	st	Z, r24
+ 342:	20 c0       	rjmp	.+64     	; 0x384 <__vector_4+0x6c>
+	}
+	else if (leeRx2() == 0){
+ 344:	1c 99       	sbic	0x03, 4	; 3
+ 346:	09 c0       	rjmp	.+18     	; 0x35a <__vector_4+0x42>
+		Rx = 2;
+ 348:	82 e0       	ldi	r24, 0x02	; 2
+ 34a:	80 93 0a 01 	sts	0x010A, r24
+		DISABLE_RX2();
+ 34e:	eb e6       	ldi	r30, 0x6B	; 107
+ 350:	f0 e0       	ldi	r31, 0x00	; 0
+ 352:	80 81       	ld	r24, Z
+ 354:	8f 7e       	andi	r24, 0xEF	; 239
+ 356:	80 83       	st	Z, r24
+ 358:	15 c0       	rjmp	.+42     	; 0x384 <__vector_4+0x6c>
+	}
+	else if (leeRx3() == 0){
+ 35a:	1a 99       	sbic	0x03, 2	; 3
+ 35c:	09 c0       	rjmp	.+18     	; 0x370 <__vector_4+0x58>
+		Rx = 3;
+ 35e:	83 e0       	ldi	r24, 0x03	; 3
+ 360:	80 93 0a 01 	sts	0x010A, r24
+		DISABLE_RX3();
+ 364:	eb e6       	ldi	r30, 0x6B	; 107
+ 366:	f0 e0       	ldi	r31, 0x00	; 0
+ 368:	80 81       	ld	r24, Z
+ 36a:	8b 7f       	andi	r24, 0xFB	; 251
+ 36c:	80 83       	st	Z, r24
+ 36e:	0a c0       	rjmp	.+20     	; 0x384 <__vector_4+0x6c>
+	}
+	else if (leeRx4() == 0){
+ 370:	30 99       	sbic	0x06, 0	; 6
+ 372:	08 c0       	rjmp	.+16     	; 0x384 <__vector_4+0x6c>
+		Rx = 4;
+ 374:	84 e0       	ldi	r24, 0x04	; 4
+ 376:	80 93 0a 01 	sts	0x010A, r24
+		DISABLE_RX4();
+ 37a:	ec e6       	ldi	r30, 0x6C	; 108
+ 37c:	f0 e0       	ldi	r31, 0x00	; 0
+ 37e:	80 81       	ld	r24, Z
+ 380:	8e 7f       	andi	r24, 0xFE	; 254
+ 382:	80 83       	st	Z, r24
+	}
+
+	DISABLE_TIMER();
+ 384:	ee e6       	ldi	r30, 0x6E	; 110
+ 386:	f0 e0       	ldi	r31, 0x00	; 0
+ 388:	80 81       	ld	r24, Z
+ 38a:	8d 7f       	andi	r24, 0xFD	; 253
+ 38c:	80 83       	st	Z, r24
+	STOP_TIMER();
+ 38e:	15 bc       	out	0x25, r1	; 37
+
+	TCNT0 = INTERRUPT_EXEC_CYCL;	// Limpia la cuenta. Incluye tiempo para ejecutar la rutina de interrupción.
+ 390:	89 e0       	ldi	r24, 0x09	; 9
+ 392:	86 bd       	out	0x26, r24	; 38
+
+	START_TIMER();
+ 394:	82 e0       	ldi	r24, 0x02	; 2
+ 396:	85 bd       	out	0x25, r24	; 37
+	OCR0A = TICKS2WAITONE_HALF;		// Cuenta un periodo y medio para el muestreo.
+ 398:	87 e6       	ldi	r24, 0x67	; 103
+ 39a:	87 bd       	out	0x27, r24	; 39
+
+	RxBitCount = 0;			// Limpia el contador de bits recibidos.
+ 39c:	10 92 4c 01 	sts	0x014C, r1
+	CLEAN_FLAG_TIMER();
+ 3a0:	a9 9a       	sbi	0x15, 1	; 21
+	ENABLE_TIMER();
+ 3a2:	80 81       	ld	r24, Z
+ 3a4:	82 60       	ori	r24, 0x02	; 2
+ 3a6:	80 83       	st	Z, r24
+
+	return;
+}
+ 3a8:	ff 91       	pop	r31
+ 3aa:	ef 91       	pop	r30
+ 3ac:	8f 91       	pop	r24
+ 3ae:	0f 90       	pop	r0
+ 3b0:	0f be       	out	0x3f, r0	; 63
+ 3b2:	0f 90       	pop	r0
+ 3b4:	1f 90       	pop	r1
+ 3b6:	18 95       	reti
+
+000003b8 <__vector_14>:
+#endif
+
+
+/* Timer. Mapeo de transmisión y recepción. */
+ISR(TIMER0_COMPA_vect)
+{
+ 3b8:	1f 92       	push	r1
+ 3ba:	0f 92       	push	r0
+ 3bc:	0f b6       	in	r0, 0x3f	; 63
+ 3be:	0f 92       	push	r0
+ 3c0:	11 24       	eor	r1, r1
+ 3c2:	8f 93       	push	r24
+ 3c4:	9f 93       	push	r25
+ 3c6:	ef 93       	push	r30
+ 3c8:	ff 93       	push	r31
+	uint8_t tmphead;
+	switch(estado)
+ 3ca:	80 91 0c 01 	lds	r24, 0x010C
+ 3ce:	82 30       	cpi	r24, 0x02	; 2
+ 3d0:	09 f4       	brne	.+2      	; 0x3d4 <__vector_14+0x1c>
+ 3d2:	5d c0       	rjmp	.+186    	; 0x48e <__vector_14+0xd6>
+ 3d4:	83 30       	cpi	r24, 0x03	; 3
+ 3d6:	09 f4       	brne	.+2      	; 0x3da <__vector_14+0x22>
+ 3d8:	72 c0       	rjmp	.+228    	; 0x4be <__vector_14+0x106>
+ 3da:	81 30       	cpi	r24, 0x01	; 1
+ 3dc:	09 f0       	breq	.+2      	; 0x3e0 <__vector_14+0x28>
+ 3de:	14 c1       	rjmp	.+552    	; 0x608 <__vector_14+0x250>
+	{
+		case TRANSMIT:
+		if (TxBitCount < 8)
+ 3e0:	80 91 0e 01 	lds	r24, 0x010E
+ 3e4:	88 30       	cpi	r24, 0x08	; 8
+ 3e6:	c0 f5       	brcc	.+112    	; 0x458 <__vector_14+0xa0>
+		{
+			switch(Tx)
+ 3e8:	80 91 0b 01 	lds	r24, 0x010B
+ 3ec:	82 30       	cpi	r24, 0x02	; 2
+ 3ee:	91 f0       	breq	.+36     	; 0x414 <__vector_14+0x5c>
+ 3f0:	83 30       	cpi	r24, 0x03	; 3
+ 3f2:	18 f4       	brcc	.+6      	; 0x3fa <__vector_14+0x42>
+ 3f4:	81 30       	cpi	r24, 0x01	; 1
+ 3f6:	29 f5       	brne	.+74     	; 0x442 <__vector_14+0x8a>
+ 3f8:	05 c0       	rjmp	.+10     	; 0x404 <__vector_14+0x4c>
+ 3fa:	83 30       	cpi	r24, 0x03	; 3
+ 3fc:	99 f0       	breq	.+38     	; 0x424 <__vector_14+0x6c>
+ 3fe:	84 30       	cpi	r24, 0x04	; 4
+ 400:	01 f5       	brne	.+64     	; 0x442 <__vector_14+0x8a>
+ 402:	18 c0       	rjmp	.+48     	; 0x434 <__vector_14+0x7c>
+			{
+				case 1:
+				if (TxData & 0x01)	// Si el LSB del TX buffer es 1:
+ 404:	80 91 0d 01 	lds	r24, 0x010D
+ 408:	80 ff       	sbrs	r24, 0
+ 40a:	02 c0       	rjmp	.+4      	; 0x410 <__vector_14+0x58>
+				setTx1();			// Enviar un 1 por el pin TX
+ 40c:	28 9a       	sbi	0x05, 0	; 5
+ 40e:	19 c0       	rjmp	.+50     	; 0x442 <__vector_14+0x8a>
+				else						// De lo contrario:
+				clearTx1();			// Enviar un 0 por el pin TX
+ 410:	28 98       	cbi	0x05, 0	; 5
+ 412:	17 c0       	rjmp	.+46     	; 0x442 <__vector_14+0x8a>
+				break;
+				case 2:
+				if (TxData & 0x01)	// Si el LSB del TX buffer es 1:
+ 414:	80 91 0d 01 	lds	r24, 0x010D
+ 418:	80 ff       	sbrs	r24, 0
+ 41a:	02 c0       	rjmp	.+4      	; 0x420 <__vector_14+0x68>
+				setTx2();			// Enviar un 1 por el pin TX
+ 41c:	2d 9a       	sbi	0x05, 5	; 5
+ 41e:	11 c0       	rjmp	.+34     	; 0x442 <__vector_14+0x8a>
+				else						// De lo contrario:
+				clearTx2();			// Enviar un 0 por el pin TX
+ 420:	2d 98       	cbi	0x05, 5	; 5
+ 422:	0f c0       	rjmp	.+30     	; 0x442 <__vector_14+0x8a>
+				break;
+				case 3:
+				if (TxData & 0x01)	// Si el LSB del TX buffer es 1:
+ 424:	80 91 0d 01 	lds	r24, 0x010D
+ 428:	80 ff       	sbrs	r24, 0
+ 42a:	02 c0       	rjmp	.+4      	; 0x430 <__vector_14+0x78>
+				setTx3();			// Enviar un 1 por el pin TX
+ 42c:	2b 9a       	sbi	0x05, 3	; 5
+ 42e:	09 c0       	rjmp	.+18     	; 0x442 <__vector_14+0x8a>
+				else						// De lo contrario:
+				clearTx3();			// Enviar un 0 por el pin TX
+ 430:	2b 98       	cbi	0x05, 3	; 5
+ 432:	07 c0       	rjmp	.+14     	; 0x442 <__vector_14+0x8a>
+				break;
+				case 4:
+				if (TxData & 0x01)	// Si el LSB del TX buffer es 1:
+ 434:	80 91 0d 01 	lds	r24, 0x010D
+ 438:	80 ff       	sbrs	r24, 0
+ 43a:	02 c0       	rjmp	.+4      	; 0x440 <__vector_14+0x88>
+				setTx4();			// Enviar un 1 por el pin TX
+ 43c:	41 9a       	sbi	0x08, 1	; 8
+ 43e:	01 c0       	rjmp	.+2      	; 0x442 <__vector_14+0x8a>
+				else						// De lo contrario:
+				clearTx4();			// Enviar un 0 por el pin TX
+ 440:	41 98       	cbi	0x08, 1	; 8
+				break;
+				default:
+				break;
+			}
+			
+			TxData = TxData >> 1; // Shift para evaluar siguiente bit.
+ 442:	80 91 0d 01 	lds	r24, 0x010D
+ 446:	86 95       	lsr	r24
+ 448:	80 93 0d 01 	sts	0x010D, r24
+			TxBitCount++;			// Incrementa el contador de bits transmitidos.
+ 44c:	80 91 0e 01 	lds	r24, 0x010E
+ 450:	8f 5f       	subi	r24, 0xFF	; 255
+ 452:	80 93 0e 01 	sts	0x010E, r24
+ 456:	da c0       	rjmp	.+436    	; 0x60c <__vector_14+0x254>
+		}
+		else
+		{
+			switch(Tx)
+ 458:	80 91 0b 01 	lds	r24, 0x010B
+ 45c:	82 30       	cpi	r24, 0x02	; 2
+ 45e:	61 f0       	breq	.+24     	; 0x478 <__vector_14+0xc0>
+ 460:	83 30       	cpi	r24, 0x03	; 3
+ 462:	18 f4       	brcc	.+6      	; 0x46a <__vector_14+0xb2>
+ 464:	81 30       	cpi	r24, 0x01	; 1
+ 466:	69 f4       	brne	.+26     	; 0x482 <__vector_14+0xca>
+ 468:	05 c0       	rjmp	.+10     	; 0x474 <__vector_14+0xbc>
+ 46a:	83 30       	cpi	r24, 0x03	; 3
+ 46c:	39 f0       	breq	.+14     	; 0x47c <__vector_14+0xc4>
+ 46e:	84 30       	cpi	r24, 0x04	; 4
+ 470:	41 f4       	brne	.+16     	; 0x482 <__vector_14+0xca>
+ 472:	06 c0       	rjmp	.+12     	; 0x480 <__vector_14+0xc8>
+			{
+				case 1:
+				setTx1();					// Enviar un 1 por el pin TX.
+ 474:	28 9a       	sbi	0x05, 0	; 5
+				break;
+ 476:	05 c0       	rjmp	.+10     	; 0x482 <__vector_14+0xca>
+				case 2:
+				setTx2();					// Enviar un 1 por el pin TX.
+ 478:	2d 9a       	sbi	0x05, 5	; 5
+				break;
+ 47a:	03 c0       	rjmp	.+6      	; 0x482 <__vector_14+0xca>
+				case 3:
+				setTx3();					// Enviar un 1 por el pin TX.
+ 47c:	2b 9a       	sbi	0x05, 3	; 5
+				break;
+ 47e:	01 c0       	rjmp	.+2      	; 0x482 <__vector_14+0xca>
+				case 4:
+				setTx4();					// Enviar un 1 por el pin TX.
+ 480:	41 9a       	sbi	0x08, 1	; 8
+				break;
+				default:
+				break;
+			}
+			Tx = 0;
+ 482:	10 92 0b 01 	sts	0x010B, r1
+			estado = TRANSMIT_STOP_BIT;		// Cambia el estado.
+ 486:	82 e0       	ldi	r24, 0x02	; 2
+ 488:	80 93 0c 01 	sts	0x010C, r24
+ 48c:	bf c0       	rjmp	.+382    	; 0x60c <__vector_14+0x254>
+		}
+		break;
+
+		case TRANSMIT_STOP_BIT:
+		DISABLE_TIMER();
+ 48e:	ee e6       	ldi	r30, 0x6E	; 110
+ 490:	f0 e0       	ldi	r31, 0x00	; 0
+ 492:	80 81       	ld	r24, Z
+ 494:	8d 7f       	andi	r24, 0xFD	; 253
+ 496:	80 83       	st	Z, r24
+		/* Activa interrupción para RX*/
+		ENABLE_RX1();
+ 498:	eb e6       	ldi	r30, 0x6B	; 107
+ 49a:	f0 e0       	ldi	r31, 0x00	; 0
+ 49c:	80 81       	ld	r24, Z
+ 49e:	82 60       	ori	r24, 0x02	; 2
+ 4a0:	80 83       	st	Z, r24
+		ENABLE_RX2();
+ 4a2:	80 81       	ld	r24, Z
+ 4a4:	80 61       	ori	r24, 0x10	; 16
+ 4a6:	80 83       	st	Z, r24
+		ENABLE_RX3();
+ 4a8:	80 81       	ld	r24, Z
+ 4aa:	84 60       	ori	r24, 0x04	; 4
+ 4ac:	80 83       	st	Z, r24
+		ENABLE_RX4();
+ 4ae:	ec e6       	ldi	r30, 0x6C	; 108
+ 4b0:	f0 e0       	ldi	r31, 0x00	; 0
+ 4b2:	80 81       	ld	r24, Z
+ 4b4:	81 60       	ori	r24, 0x01	; 1
+ 4b6:	80 83       	st	Z, r24
+		estado = IDLE;				// Cambia de estado
+ 4b8:	10 92 0c 01 	sts	0x010C, r1
+		break;
+ 4bc:	a7 c0       	rjmp	.+334    	; 0x60c <__vector_14+0x254>
+
+		case RECEIVE:
+		OCR0A = TICKS2WAITONE; 		//Cuenta un periodo despues de que se active la interrupción de RX.
+ 4be:	87 e6       	ldi	r24, 0x67	; 103
+ 4c0:	87 bd       	out	0x27, r24	; 39
+		if (RxBitCount < 8)
+ 4c2:	80 91 4c 01 	lds	r24, 0x014C
+ 4c6:	88 30       	cpi	r24, 0x08	; 8
+ 4c8:	d0 f5       	brcc	.+116    	; 0x53e <__vector_14+0x186>
+		{
+			RxBitCount++;					// Incrementa el contador de bits recibidos.
+ 4ca:	80 91 4c 01 	lds	r24, 0x014C
+ 4ce:	8f 5f       	subi	r24, 0xFF	; 255
+ 4d0:	80 93 4c 01 	sts	0x014C, r24
+			RxData = (RxData>>1); 	// Shift para ordenar de LSB a MSB.
+ 4d4:	80 91 4b 01 	lds	r24, 0x014B
+ 4d8:	86 95       	lsr	r24
+ 4da:	80 93 4b 01 	sts	0x014B, r24
+			switch (Rx)
+ 4de:	80 91 0a 01 	lds	r24, 0x010A
+ 4e2:	82 30       	cpi	r24, 0x02	; 2
+ 4e4:	a1 f0       	breq	.+40     	; 0x50e <__vector_14+0x156>
+ 4e6:	83 30       	cpi	r24, 0x03	; 3
+ 4e8:	20 f4       	brcc	.+8      	; 0x4f2 <__vector_14+0x13a>
+ 4ea:	81 30       	cpi	r24, 0x01	; 1
+ 4ec:	09 f0       	breq	.+2      	; 0x4f0 <__vector_14+0x138>
+ 4ee:	8e c0       	rjmp	.+284    	; 0x60c <__vector_14+0x254>
+ 4f0:	06 c0       	rjmp	.+12     	; 0x4fe <__vector_14+0x146>
+ 4f2:	83 30       	cpi	r24, 0x03	; 3
+ 4f4:	a1 f0       	breq	.+40     	; 0x51e <__vector_14+0x166>
+ 4f6:	84 30       	cpi	r24, 0x04	; 4
+ 4f8:	09 f0       	breq	.+2      	; 0x4fc <__vector_14+0x144>
+ 4fa:	88 c0       	rjmp	.+272    	; 0x60c <__vector_14+0x254>
+ 4fc:	18 c0       	rjmp	.+48     	; 0x52e <__vector_14+0x176>
+			{
+				case 1:
+				if (leeRx1() != 0)		// Si lee un 1
+ 4fe:	19 9b       	sbis	0x03, 1	; 3
+ 500:	85 c0       	rjmp	.+266    	; 0x60c <__vector_14+0x254>
+				RxData |= 0x80;	// Se ubicará un 1 en el extremo izquierdo. (Mirror)
+ 502:	80 91 4b 01 	lds	r24, 0x014B
+ 506:	80 68       	ori	r24, 0x80	; 128
+ 508:	80 93 4b 01 	sts	0x014B, r24
+ 50c:	7f c0       	rjmp	.+254    	; 0x60c <__vector_14+0x254>
+				break;
+				case 2:
+				if (leeRx2() != 0)		// Si lee un 1
+ 50e:	1c 9b       	sbis	0x03, 4	; 3
+ 510:	7d c0       	rjmp	.+250    	; 0x60c <__vector_14+0x254>
+				RxData |= 0x80;	// Se ubicará un 1 en el extremo izquierdo. (Mirror)
+ 512:	80 91 4b 01 	lds	r24, 0x014B
+ 516:	80 68       	ori	r24, 0x80	; 128
+ 518:	80 93 4b 01 	sts	0x014B, r24
+ 51c:	77 c0       	rjmp	.+238    	; 0x60c <__vector_14+0x254>
+				break;
+				case 3:
+				if (leeRx3() != 0)		// Si lee un 1
+ 51e:	1a 9b       	sbis	0x03, 2	; 3
+ 520:	75 c0       	rjmp	.+234    	; 0x60c <__vector_14+0x254>
+				RxData |= 0x80;	// Se ubicará un 1 en el extremo izquierdo. (Mirror)
+ 522:	80 91 4b 01 	lds	r24, 0x014B
+ 526:	80 68       	ori	r24, 0x80	; 128
+ 528:	80 93 4b 01 	sts	0x014B, r24
+ 52c:	6f c0       	rjmp	.+222    	; 0x60c <__vector_14+0x254>
+				break;
+				case 4:
+				if (leeRx4() != 0)		// Si lee un 1
+ 52e:	30 9b       	sbis	0x06, 0	; 6
+ 530:	6d c0       	rjmp	.+218    	; 0x60c <__vector_14+0x254>
+				RxData |= 0x80;	// Se ubicará un 1 en el extremo izquierdo. (Mirror)
+ 532:	80 91 4b 01 	lds	r24, 0x014B
+ 536:	80 68       	ori	r24, 0x80	; 128
+ 538:	80 93 4b 01 	sts	0x014B, r24
+ 53c:	67 c0       	rjmp	.+206    	; 0x60c <__vector_14+0x254>
+				break;
+			}
+		}
+		else
+		{
+			switch(Rx)
+ 53e:	80 91 0a 01 	lds	r24, 0x010A
+ 542:	82 30       	cpi	r24, 0x02	; 2
+ 544:	d1 f0       	breq	.+52     	; 0x57a <__vector_14+0x1c2>
+ 546:	83 30       	cpi	r24, 0x03	; 3
+ 548:	20 f4       	brcc	.+8      	; 0x552 <__vector_14+0x19a>
+ 54a:	81 30       	cpi	r24, 0x01	; 1
+ 54c:	09 f0       	breq	.+2      	; 0x550 <__vector_14+0x198>
+ 54e:	41 c0       	rjmp	.+130    	; 0x5d2 <__vector_14+0x21a>
+ 550:	05 c0       	rjmp	.+10     	; 0x55c <__vector_14+0x1a4>
+ 552:	83 30       	cpi	r24, 0x03	; 3
+ 554:	09 f1       	breq	.+66     	; 0x598 <__vector_14+0x1e0>
+ 556:	84 30       	cpi	r24, 0x04	; 4
+ 558:	e1 f5       	brne	.+120    	; 0x5d2 <__vector_14+0x21a>
+ 55a:	2d c0       	rjmp	.+90     	; 0x5b6 <__vector_14+0x1fe>
+			{
+				case 1:
+				tmphead = (Rx1Head +1)&RX1_BUFFER_MASK;
+ 55c:	80 91 2d 01 	lds	r24, 0x012D
+ 560:	8f 5f       	subi	r24, 0xFF	; 255
+ 562:	87 70       	andi	r24, 0x07	; 7
+				Rx1Head = tmphead;
+ 564:	80 93 2d 01 	sts	0x012D, r24
+				BufferRx1[tmphead] = RxData;
+ 568:	90 91 4b 01 	lds	r25, 0x014B
+ 56c:	ef e2       	ldi	r30, 0x2F	; 47
+ 56e:	f1 e0       	ldi	r31, 0x01	; 1
+ 570:	e8 0f       	add	r30, r24
+ 572:	f1 1d       	adc	r31, r1
+ 574:	90 83       	st	Z, r25
+				CLEAN_FLAG_RX1();			// Limpia la bandera de interrupción del pin RX.
+ 576:	d8 9a       	sbi	0x1b, 0	; 27
+				break;
+ 578:	2c c0       	rjmp	.+88     	; 0x5d2 <__vector_14+0x21a>
+				case 2:
+				tmphead = (Rx2Head +1)&RX2_BUFFER_MASK;
+ 57a:	80 91 23 01 	lds	r24, 0x0123
+ 57e:	8f 5f       	subi	r24, 0xFF	; 255
+ 580:	87 70       	andi	r24, 0x07	; 7
+				Rx2Head = tmphead;
+ 582:	80 93 23 01 	sts	0x0123, r24
+				BufferRx2[tmphead] = RxData;
+ 586:	90 91 4b 01 	lds	r25, 0x014B
+ 58a:	e5 e2       	ldi	r30, 0x25	; 37
+ 58c:	f1 e0       	ldi	r31, 0x01	; 1
+ 58e:	e8 0f       	add	r30, r24
+ 590:	f1 1d       	adc	r31, r1
+ 592:	90 83       	st	Z, r25
+				CLEAN_FLAG_RX2();			// Limpia la bandera de interrupción del pin RX.
+ 594:	d8 9a       	sbi	0x1b, 0	; 27
+				break;
+ 596:	1d c0       	rjmp	.+58     	; 0x5d2 <__vector_14+0x21a>
+				case 3:
+				tmphead = (Rx3Head +1)&RX3_BUFFER_MASK;
+ 598:	80 91 19 01 	lds	r24, 0x0119
+ 59c:	8f 5f       	subi	r24, 0xFF	; 255
+ 59e:	87 70       	andi	r24, 0x07	; 7
+				Rx3Head = tmphead;
+ 5a0:	80 93 19 01 	sts	0x0119, r24
+				BufferRx3[tmphead] = RxData;
+ 5a4:	90 91 4b 01 	lds	r25, 0x014B
+ 5a8:	eb e1       	ldi	r30, 0x1B	; 27
+ 5aa:	f1 e0       	ldi	r31, 0x01	; 1
+ 5ac:	e8 0f       	add	r30, r24
+ 5ae:	f1 1d       	adc	r31, r1
+ 5b0:	90 83       	st	Z, r25
+				CLEAN_FLAG_RX3();			// Limpia la bandera de interrupción del pin RX.
+ 5b2:	d8 9a       	sbi	0x1b, 0	; 27
+				break;
+ 5b4:	0e c0       	rjmp	.+28     	; 0x5d2 <__vector_14+0x21a>
+				case 4:
+				tmphead = (Rx4Head +1)&RX4_BUFFER_MASK;
+ 5b6:	80 91 0f 01 	lds	r24, 0x010F
+ 5ba:	8f 5f       	subi	r24, 0xFF	; 255
+ 5bc:	87 70       	andi	r24, 0x07	; 7
+				Rx4Head = tmphead;
+ 5be:	80 93 0f 01 	sts	0x010F, r24
+				BufferRx4[tmphead] = RxData;
+ 5c2:	90 91 4b 01 	lds	r25, 0x014B
+ 5c6:	e1 e1       	ldi	r30, 0x11	; 17
+ 5c8:	f1 e0       	ldi	r31, 0x01	; 1
+ 5ca:	e8 0f       	add	r30, r24
+ 5cc:	f1 1d       	adc	r31, r1
+ 5ce:	90 83       	st	Z, r25
+				CLEAN_FLAG_RX4();			// Limpia la bandera de interrupción del pin RX.
+ 5d0:	d9 9a       	sbi	0x1b, 1	; 27
+				break;
+				default:
+				break;
+			}
+			Rx = 0;						// Limpia bandera
+ 5d2:	10 92 0a 01 	sts	0x010A, r1
+			estado = DATA_PENDING;		// Cambia de estado
+ 5d6:	84 e0       	ldi	r24, 0x04	; 4
+ 5d8:	80 93 0c 01 	sts	0x010C, r24
+			DISABLE_TIMER();
+ 5dc:	ee e6       	ldi	r30, 0x6E	; 110
+ 5de:	f0 e0       	ldi	r31, 0x00	; 0
+ 5e0:	80 81       	ld	r24, Z
+ 5e2:	8d 7f       	andi	r24, 0xFD	; 253
+ 5e4:	80 83       	st	Z, r24
+			ENABLE_RX1();
+ 5e6:	eb e6       	ldi	r30, 0x6B	; 107
+ 5e8:	f0 e0       	ldi	r31, 0x00	; 0
+ 5ea:	80 81       	ld	r24, Z
+ 5ec:	82 60       	ori	r24, 0x02	; 2
+ 5ee:	80 83       	st	Z, r24
+			ENABLE_RX2();
+ 5f0:	80 81       	ld	r24, Z
+ 5f2:	80 61       	ori	r24, 0x10	; 16
+ 5f4:	80 83       	st	Z, r24
+			ENABLE_RX3();
+ 5f6:	80 81       	ld	r24, Z
+ 5f8:	84 60       	ori	r24, 0x04	; 4
+ 5fa:	80 83       	st	Z, r24
+			ENABLE_RX4();
+ 5fc:	ec e6       	ldi	r30, 0x6C	; 108
+ 5fe:	f0 e0       	ldi	r31, 0x00	; 0
+ 600:	80 81       	ld	r24, Z
+ 602:	81 60       	ori	r24, 0x01	; 1
+ 604:	80 83       	st	Z, r24
+ 606:	02 c0       	rjmp	.+4      	; 0x60c <__vector_14+0x254>
+		}
+		break;
+		default:
+		estado = IDLE;			// Estado por defecto es IDLE.
+ 608:	10 92 0c 01 	sts	0x010C, r1
+	}
+
+}
+ 60c:	ff 91       	pop	r31
+ 60e:	ef 91       	pop	r30
+ 610:	9f 91       	pop	r25
+ 612:	8f 91       	pop	r24
+ 614:	0f 90       	pop	r0
+ 616:	0f be       	out	0x3f, r0	; 63
+ 618:	0f 90       	pop	r0
+ 61a:	1f 90       	pop	r1
+ 61c:	18 95       	reti
+
+0000061e <__vector_19>:
+
+/* Buffer vacío. Empieza transmisión */
+ISR(USART_UDRE_vect)
+{
+ 61e:	1f 92       	push	r1
+ 620:	0f 92       	push	r0
+ 622:	0f b6       	in	r0, 0x3f	; 63
+ 624:	0f 92       	push	r0
+ 626:	11 24       	eor	r1, r1
+ 628:	8f 93       	push	r24
+ 62a:	9f 93       	push	r25
+ 62c:	ef 93       	push	r30
+ 62e:	ff 93       	push	r31
+	uint8_t tmptail;
+	if (Tx0Head != Tx0Tail) {			// Verifica si existe algun dato nuevo
+ 630:	90 91 37 01 	lds	r25, 0x0137
+ 634:	80 91 38 01 	lds	r24, 0x0138
+ 638:	98 17       	cp	r25, r24
+ 63a:	71 f0       	breq	.+28     	; 0x658 <__vector_19+0x3a>
+		tmptail = (Tx0Tail+1) & TX0_BUFFER_MASK;	// Calcula la nueva posicion
+ 63c:	80 91 38 01 	lds	r24, 0x0138
+ 640:	8f 5f       	subi	r24, 0xFF	; 255
+ 642:	87 70       	andi	r24, 0x07	; 7
+		Tx0Tail = tmptail;				// Almacena la posición del buffer
+ 644:	80 93 38 01 	sts	0x0138, r24
+		UDR0 = BufferTx0[tmptail];		// Transmite 
+ 648:	e9 e3       	ldi	r30, 0x39	; 57
+ 64a:	f1 e0       	ldi	r31, 0x01	; 1
+ 64c:	e8 0f       	add	r30, r24
+ 64e:	f1 1d       	adc	r31, r1
+ 650:	80 81       	ld	r24, Z
+ 652:	80 93 c6 00 	sts	0x00C6, r24
+ 656:	05 c0       	rjmp	.+10     	; 0x662 <__vector_19+0x44>
+	} else {
+		/* Deshabilita interrupción UDRE */
+		cbi(UCSR0B, UDRIE0);
+ 658:	e1 ec       	ldi	r30, 0xC1	; 193
+ 65a:	f0 e0       	ldi	r31, 0x00	; 0
+ 65c:	80 81       	ld	r24, Z
+ 65e:	8f 7d       	andi	r24, 0xDF	; 223
+ 660:	80 83       	st	Z, r24
+	}
+	
+}
+ 662:	ff 91       	pop	r31
+ 664:	ef 91       	pop	r30
+ 666:	9f 91       	pop	r25
+ 668:	8f 91       	pop	r24
+ 66a:	0f 90       	pop	r0
+ 66c:	0f be       	out	0x3f, r0	; 63
+ 66e:	0f 90       	pop	r0
+ 670:	1f 90       	pop	r1
+ 672:	18 95       	reti
+
+00000674 <__vector_18>:
+
+/* Data nueva. Lee recepción */
+ISR(USART_RX_vect)
+{
+ 674:	1f 92       	push	r1
+ 676:	0f 92       	push	r0
+ 678:	0f b6       	in	r0, 0x3f	; 63
+ 67a:	0f 92       	push	r0
+ 67c:	11 24       	eor	r1, r1
+ 67e:	8f 93       	push	r24
+ 680:	9f 93       	push	r25
+ 682:	ef 93       	push	r30
+ 684:	ff 93       	push	r31
+	uint8_t tmphead;
+
+	RxData = UDR0;					// Lee y almacena la data
+ 686:	80 91 c6 00 	lds	r24, 0x00C6
+ 68a:	80 93 4b 01 	sts	0x014B, r24
+	tmphead = (Rx0Head + 1) & RX0_BUFFER_MASK;
+ 68e:	80 91 41 01 	lds	r24, 0x0141
+ 692:	8f 5f       	subi	r24, 0xFF	; 255
+ 694:	87 70       	andi	r24, 0x07	; 7
+	Rx0Head = tmphead;
+ 696:	80 93 41 01 	sts	0x0141, r24
+	BufferRx0[tmphead] = RxData;	// Guarda en buffer
+ 69a:	90 91 4b 01 	lds	r25, 0x014B
+ 69e:	e3 e4       	ldi	r30, 0x43	; 67
+ 6a0:	f1 e0       	ldi	r31, 0x01	; 1
+ 6a2:	e8 0f       	add	r30, r24
+ 6a4:	f1 1d       	adc	r31, r1
+ 6a6:	90 83       	st	Z, r25
+}
+ 6a8:	ff 91       	pop	r31
+ 6aa:	ef 91       	pop	r30
+ 6ac:	9f 91       	pop	r25
+ 6ae:	8f 91       	pop	r24
+ 6b0:	0f 90       	pop	r0
+ 6b2:	0f be       	out	0x3f, r0	; 63
+ 6b4:	0f 90       	pop	r0
+ 6b6:	1f 90       	pop	r1
+ 6b8:	18 95       	reti
+
+000006ba <sendByte0>:
+	return BufferRx0[tmptail];
+}
+void sendByte0(uint8_t c)
+{
+	uint8_t tmphead;
+	tmphead = (Tx0Head +1) & TX0_BUFFER_MASK;	// Calculo del indice
+ 6ba:	20 91 37 01 	lds	r18, 0x0137
+ 6be:	2f 5f       	subi	r18, 0xFF	; 255
+ 6c0:	27 70       	andi	r18, 0x07	; 7
+	while (tmphead == Tx0Tail){;};	// Espera a que haya espacio en el buffer
+ 6c2:	90 91 38 01 	lds	r25, 0x0138
+ 6c6:	29 17       	cp	r18, r25
+ 6c8:	e1 f3       	breq	.-8      	; 0x6c2 <sendByte0+0x8>
+	BufferTx0[tmphead] = c;			// Almacena el dato a enviar
+ 6ca:	e9 e3       	ldi	r30, 0x39	; 57
+ 6cc:	f1 e0       	ldi	r31, 0x01	; 1
+ 6ce:	e2 0f       	add	r30, r18
+ 6d0:	f1 1d       	adc	r31, r1
+ 6d2:	80 83       	st	Z, r24
+	Tx0Head = tmphead;				// Guarda el indice
+ 6d4:	20 93 37 01 	sts	0x0137, r18
+	/* Activa Interrupcion de UART */
+	sbi(UCSR0B, UDRIE0);			// Activa la interrupcion UDRE
+ 6d8:	e1 ec       	ldi	r30, 0xC1	; 193
+ 6da:	f0 e0       	ldi	r31, 0x00	; 0
+ 6dc:	80 81       	ld	r24, Z
+ 6de:	80 62       	ori	r24, 0x20	; 32
+ 6e0:	80 83       	st	Z, r24
+	
+}
+ 6e2:	08 95       	ret
+
+000006e4 <receiveUart1>:
+/*****************************************/
+
+uint8_t receiveUart1( void)
+{
+	uint8_t tmptail;
+	while(Rx1Head == Rx1Tail){;};	// Espera a nueva data
+ 6e4:	90 91 2d 01 	lds	r25, 0x012D
+ 6e8:	80 91 2e 01 	lds	r24, 0x012E
+ 6ec:	98 17       	cp	r25, r24
+ 6ee:	d1 f3       	breq	.-12     	; 0x6e4 <receiveUart1>
+	tmptail = (Rx1Tail+1) & RX1_BUFFER_MASK;
+ 6f0:	80 91 2e 01 	lds	r24, 0x012E
+ 6f4:	8f 5f       	subi	r24, 0xFF	; 255
+ 6f6:	87 70       	andi	r24, 0x07	; 7
+	Rx1Tail = tmptail;
+ 6f8:	80 93 2e 01 	sts	0x012E, r24
+	estado = IDLE;
+ 6fc:	10 92 0c 01 	sts	0x010C, r1
+	return BufferRx1[tmptail];
+ 700:	ef e2       	ldi	r30, 0x2F	; 47
+ 702:	f1 e0       	ldi	r31, 0x01	; 1
+ 704:	e8 0f       	add	r30, r24
+ 706:	f1 1d       	adc	r31, r1
+}
+ 708:	80 81       	ld	r24, Z
+ 70a:	08 95       	ret
+
+0000070c <sendByte1>:
+void sendByte1(uint8_t c)
+{
+	while(estado != IDLE){;} 	//Espera si esta recibiendo o transmitiendo.
+ 70c:	90 91 0c 01 	lds	r25, 0x010C
+ 710:	99 23       	and	r25, r25
+ 712:	e1 f7       	brne	.-8      	; 0x70c <sendByte1>
+
+	estado = TRANSMIT;			// Cambia de estado
+ 714:	91 e0       	ldi	r25, 0x01	; 1
+ 716:	90 93 0c 01 	sts	0x010C, r25
+	cbi(PC1MSK, RXBIT1);			// Desactiva interrupcion de RX
+ 71a:	eb e6       	ldi	r30, 0x6B	; 107
+ 71c:	f0 e0       	ldi	r31, 0x00	; 0
+ 71e:	20 81       	ld	r18, Z
+ 720:	2d 7f       	andi	r18, 0xFD	; 253
+ 722:	20 83       	st	Z, r18
+	TxData = c;           // Coloca el byte en el buffer
+ 724:	80 93 0d 01 	sts	0x010D, r24
+	TxBitCount = 0;       // Reinicia el conteo
+ 728:	10 92 0e 01 	sts	0x010E, r1
+
+	/* Reinicio del contador */
+	TCCR0B &= ~( 1 << CS01 );		// Detiene el timer
+ 72c:	85 b5       	in	r24, 0x25	; 37
+ 72e:	8d 7f       	andi	r24, 0xFD	; 253
+ 730:	85 bd       	out	0x25, r24	; 37
+	TCNT0 = 0;						// Limpia el registro
+ 732:	16 bc       	out	0x26, r1	; 38
+	sbi(TIFR0, OCF0A);					// Limpia bandera de interrupción del timer
+ 734:	a9 9a       	sbi	0x15, 1	; 21
+	TCCR0B |= ( 1 << CS01 ); 		// Inicia el timer de nuevo
+ 736:	85 b5       	in	r24, 0x25	; 37
+ 738:	82 60       	ori	r24, 0x02	; 2
+ 73a:	85 bd       	out	0x25, r24	; 37
+
+	/* Start Bit*/
+	clearTx1();               	// TX en bajo
+ 73c:	28 98       	cbi	0x05, 0	; 5
+	Tx = 1;						// Habilita la comunicación para el UART1
+ 73e:	90 93 0b 01 	sts	0x010B, r25
+	/* Activa Timer0 */
+	sbi(TIMSK0, OCIE0A);       	// Activa la interrupcion por timer
+ 742:	ee e6       	ldi	r30, 0x6E	; 110
+ 744:	f0 e0       	ldi	r31, 0x00	; 0
+ 746:	80 81       	ld	r24, Z
+ 748:	82 60       	ori	r24, 0x02	; 2
+ 74a:	80 83       	st	Z, r24
+}
+ 74c:	08 95       	ret
+
+0000074e <_exit>:
+ 74e:	f8 94       	cli
+
+00000750 <__stop_program>:
+ 750:	ff cf       	rjmp	.-2      	; 0x750 <__stop_program>
