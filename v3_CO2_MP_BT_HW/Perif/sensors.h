@@ -9,6 +9,10 @@
 #ifndef SENSORS_H_
 #define SENSORS_H_
 
+
+#include "comps.h"			// UART - MUX
+#include "USART_irq.h"		// UART - HW
+
 /* Sensor de CO2 */
 
 #define GASCOMMAND1 0xFF

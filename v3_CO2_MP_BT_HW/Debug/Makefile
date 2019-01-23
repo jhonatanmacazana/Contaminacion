@@ -39,7 +39,7 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../main.c \
-../Perif/config.c \
+../Perif/comps.c \
 ../Perif/sensors.c \
 ../Perif/USART_irq.c
 
@@ -52,25 +52,25 @@ ASM_SRCS +=
 
 OBJS +=  \
 main.o \
-Perif/config.o \
+Perif/comps.o \
 Perif/sensors.o \
 Perif/USART_irq.o
 
 OBJS_AS_ARGS +=  \
 main.o \
-Perif/config.o \
+Perif/comps.o \
 Perif/sensors.o \
 Perif/USART_irq.o
 
 C_DEPS +=  \
 main.d \
-Perif/config.d \
+Perif/comps.d \
 Perif/sensors.d \
 Perif/USART_irq.d
 
 C_DEPS_AS_ARGS +=  \
 main.d \
-Perif/config.d \
+Perif/comps.d \
 Perif/sensors.d \
 Perif/USART_irq.d
 
@@ -95,7 +95,7 @@ LINKER_SCRIPT_DEP+=
 	@echo Finished building: $<
 	
 
-Perif/config.o: ../Perif/config.c
+Perif/comps.o: ../Perif/comps.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.5.1
 	$(QUOTE)D:\Aplicaciones\Atmel\AVR Tools\AVR Toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"D:\Aplicaciones\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall  -mmcu=atmega328p  -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

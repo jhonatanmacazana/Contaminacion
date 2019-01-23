@@ -15,12 +15,10 @@
 #endif
 
 
-/* Configuración del UART*/
-#define UART_BAUD_RATE			9600
-#define MYUBRR					F_CPU/8/UART_BAUD_RATE-1
 
-
-/* Configuración del Led para Debug */
+/**************************************/
+/*  Configuración del Led para Debug  */
+/**************************************/
 
 #define DDR_LED		DDRD
 #define PORT_LED	PORTD
@@ -31,9 +29,42 @@
 #define LED_OFF()	(PORT_LED &= ~(1<<P_LED))
 #define sec_to_ms(s)	(s*1000)
 
+/**************************************/
+/*	  Configuración del UART - MUX    */
+/**************************************/
+
+#define DDR_MUX		DDRD
+#define PORT_MUX	PORTD
+#define PIN_MUX		PIND
+#define MUX_BIT0	5
+#define MUX_BIT1	6
+#define MUX_BITEN	7
+
+
+#define CHANNEL_BT		0
+#define CHANNEL_CO2		1
+#define CHANNEL_MP		2
+#define CHANNEL_CO		3
+
+#define DELAY_MUX		500			// Delay para estabilizar el integrado en ms
+
+
+#define MUX_INIT()		(DDR_MUX |= (1<<MUX_BIT0)|(1<<MUX_BIT1)|(1<<MUX_BITEN))
+#define MUX_CLEAR()		(PORT_MUX &= ~((1<<MUX_BIT0)|(1<<MUX_BIT1)))
+#define MUX_ENABLE()	(PORT_MUX &= ~(1<<MUX_BITEN))
+#define MUX_DISABLE()	(PORT_MUX |= (1<<MUX_BITEN))
+
+#define MUX_SEL0()		(PORT_MUX |= (1<<MUX_BIT0))
+#define MUX_SEL1()		(PORT_MUX |= (1<<MUX_BIT1))
+
+
+
+
+
 /* Funciones Globales */
 void button_Init(void);
 void led_debug(void);
+void Mux_Channel(uint8_t channel);
 
 
 #endif /* COMPS_H_ */

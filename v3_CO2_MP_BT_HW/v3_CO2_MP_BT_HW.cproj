@@ -123,10 +123,10 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Perif\config.c">
+    <Compile Include="Perif\comps.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Perif\config.h">
+    <Compile Include="Perif\comps.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Perif\sensors.c">
