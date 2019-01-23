@@ -25,3 +25,26 @@ void led_debug(void)
 	_delay_ms(3000);
 	LED_OFF();
 }
+
+void Mux_Channel( uint8_t channel)
+{
+	MUX_ENABLE();
+	MUX_CLEAR();
+	switch (channel)
+	{
+		case 0:
+		break;
+		case 1:
+		MUX_SEL0();
+		break;
+		case 2:
+		MUX_SEL1();
+		break;
+		case 3:
+		MUX_SEL0();
+		MUX_SEL1();
+		break;
+		default:
+		break;
+	}
+}

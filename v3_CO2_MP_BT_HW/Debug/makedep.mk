@@ -4,7 +4,7 @@
 
 main.c
 
-Perif\config.c
+Perif\comps.c
 
 Perif\sensors.c
 

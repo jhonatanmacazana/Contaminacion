@@ -1,4 +1,4 @@
-Perif/sensors.d Perif/sensors.o Perif/sensors.o: ../Perif/sensors.c \
+main.d main.o main.o: .././main.c \
  d:\aplicaciones\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/io.h \
  d:\aplicaciones\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/sfr_defs.h \
  d:\aplicaciones\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/inttypes.h \
@@ -11,9 +11,9 @@ Perif/sensors.d Perif/sensors.o Perif/sensors.o: ../Perif/sensors.c \
  d:\aplicaciones\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/fuse.h \
  d:\aplicaciones\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/lock.h \
  d:\aplicaciones\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/interrupt.h \
- ../Perif/sensors.h ../Perif/comps.h ../Perif/USART_irq.h \
  d:\aplicaciones\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/util/delay.h \
- d:\aplicaciones\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/util/delay_basic.h
+ d:\aplicaciones\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/util/delay_basic.h \
+ .././Perif/sensors.h .././Perif/comps.h .././Perif/USART_irq.h
 
 d:\aplicaciones\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/io.h:
 
@@ -39,12 +39,12 @@ d:\aplicaciones\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../.
 
 d:\aplicaciones\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/interrupt.h:
 
-../Perif/sensors.h:
-
-../Perif/comps.h:
-
-../Perif/USART_irq.h:
-
 d:\aplicaciones\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/util/delay.h:
 
 d:\aplicaciones\atmel\avr\ tools\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/util/delay_basic.h:
+
+.././Perif/sensors.h:
+
+.././Perif/comps.h:
+
+.././Perif/USART_irq.h:
