@@ -90,7 +90,7 @@ uint16_t getTime(uint8_t type);
 
 void LCD_MensajeInicial(void);
 void LCD_MensajeTiempo(uint16_t cuenta);
-void LCD_MensajePrincipal(void);
+void LCD_MensajePrincipal(uint16_t co2data, uint16_t mp25data, uint16_t mp10data, uint16_t codata);
 void LCD_MensajeConexion(uint8_t conexion);
 
 

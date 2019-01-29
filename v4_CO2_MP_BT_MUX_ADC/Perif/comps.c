@@ -190,7 +190,7 @@ void LCD_MensajeTiempo(uint16_t cuenta)
 }
 
 
-void LCD_MensajePrincipal(void)
+void LCD_MensajePrincipal(uint16_t co2data, uint16_t mp25data, uint16_t mp10data, uint16_t codata)
 {
 	uint16_t tiempo = getTime(TIMER_LCD);
 	if (tiempo < TIEMPO_SENSORES)
@@ -205,7 +205,7 @@ void LCD_MensajePrincipal(void)
 		LCD_Up();
 		LCD_String("CO2             ");
 		LCD_Down();
-		LCD_Number(300);
+		LCD_Number(co2data);
 		LCD_String(" ppm             ");
 	}
 	else if (tiempo < (3 * TIEMPO_SENSORES) )
@@ -213,7 +213,7 @@ void LCD_MensajePrincipal(void)
 		LCD_Up();
 		LCD_String("PM 2.5          ");
 		LCD_Down();
-		LCD_Number(400);
+		LCD_Number(mp25data);
 		LCD_String(" ppm            ");
 	}
 	else if (tiempo < (4 * TIEMPO_SENSORES))
@@ -221,7 +221,7 @@ void LCD_MensajePrincipal(void)
 		LCD_Up();
 		LCD_String("PM 10           ");
 		LCD_Down();
-		LCD_Number(500);
+		LCD_Number(mp10data);
 		LCD_String(" ppm            ");
 	}
 	else if (tiempo < (5 * TIEMPO_SENSORES) )
@@ -229,7 +229,7 @@ void LCD_MensajePrincipal(void)
 		LCD_Up();
 		LCD_String("CO             ");
 		LCD_Down();
-		LCD_Number(600);
+		LCD_Number(codata);
 		LCD_String(" ppm            ");
 	}
 	else
@@ -254,7 +254,7 @@ void LCD_MensajeConexion(uint8_t conexion)
 		LCD_Up();
 		LCD_String("Estado:         ");
 		LCD_Down();
-		LCD_String("Conectado    ");
+		LCD_String("Conectado       ");
 
 	}
 	_delay_ms(3000);
