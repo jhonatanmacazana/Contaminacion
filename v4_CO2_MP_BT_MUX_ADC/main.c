@@ -27,6 +27,8 @@ uint8_t key;
 
 /* Data - sensores */
 uint8_t DATA_MP[4];
+uint16_t DATA_MP25;
+uint16_t DATA_MP10;
 uint16_t DATA_CO2;
 uint16_t DATA_CO; 
 
@@ -70,7 +72,7 @@ int main(void)
 
 	/* Cambio de modo */
 	MPswitchMode(PASSIVE_MODE);
-	COswitchMode(QA_MODE);
+	//COswitchMode(QA_MODE);
 	
 	/* Mensajes iniciales por LCD */
 	LCD_MensajeInicial();		// Inicializando...
@@ -81,13 +83,16 @@ int main(void)
 	setTime(TIMER_ADC, 0);
 	setTime(TIMER_BT, 0);
 	setTime(TIMER_GLOBAL, 0);
-	
+
+	key = 1;
+	DATA_CO = 0;
+	conexion_bt = 1;
 	while (1) 
 	{
 		/* Sensores */
 		if(key == 1)
 		{
-			key = 0;
+			//key = 0;
 	
 			/* CO2 */
 			DATA_CO2 = CO2getData();
@@ -96,7 +101,7 @@ int main(void)
 			MPgetData(DATA_MP);
 			
 			/* CO */
-			DATA_CO = COgetData();
+			//DATA_CO = COgetData();
 
 			/* Bluetooth */
 			if (conexion_bt == 1)
@@ -109,9 +114,10 @@ int main(void)
 				USART_Transmit(DATA_MP[1]);
 				USART_Transmit(DATA_MP[2]);
 				USART_Transmit(DATA_MP[3]);
-				USART_Transmit(DATA_CO>>8);
-				USART_Transmit(DATA_CO);
+				//USART_Transmit(DATA_CO>>8);
+				//USART_Transmit(DATA_CO);
 			}
+
 		}
 		
 		
@@ -128,7 +134,9 @@ int main(void)
 		}
 		
 		/* LCD */
-		LCD_MensajePrincipal();
+		DATA_MP25 = (DATA_MP[0]<<8) | (DATA_MP[1]);
+		DATA_MP10 = (DATA_MP[2]<<8) | (DATA_MP[3]);
+		LCD_MensajePrincipal(DATA_CO2, DATA_MP25, DATA_MP10, DATA_CO);
 		
 		/* Mensaje por desconexion */
 		time_bt = getTime(TIMER_BT);

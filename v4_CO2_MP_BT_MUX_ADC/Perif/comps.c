@@ -39,7 +39,7 @@ void led_debug(void)
 /**************************************/
 void Mux_Channel( uint8_t channel)
 {
-	MUX_ENABLE();
+	//MUX_ENABLE();
 	MUX_CLEAR();
 	switch (channel)
 	{

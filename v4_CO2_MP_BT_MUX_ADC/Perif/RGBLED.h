@@ -30,12 +30,12 @@
 *	Choose the type of led and the port definitions.
 *
 */
-#define TYPE_RGB		COMMON_CATHODE
-#define PORT_RGB		PORTD
-#define DDR_RGB			DDRD
-#define PIN_R			3
-#define PIN_G			4
-#define PIN_B			5
+#define TYPE_RGB		COMMON_ANODE
+#define PORT_RGB		PORTC
+#define DDR_RGB			DDRC
+#define PIN_R			1
+#define PIN_G			2
+#define PIN_B			3
 
 /**
 *	RGB Macros
