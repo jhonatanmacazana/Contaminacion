@@ -138,6 +138,31 @@ uint8_t USART_Receive(void)
 
 
 /*************************************************************************
+Waits until there are new data in the buffer.
+Input:    none
+Returns:  Data received from the UART.
+*************************************************************************/
+uint8_t USART_ReceiveIf(void)
+{
+	uint8_t tmptail;
+	
+	/* If there is new data */
+	if (USART_RxHead != USART_RxTail)
+	{
+		/* Calculate buffer index */
+		tmptail = (USART_RxTail + 1) & USART_RX_BUFFER_MASK;
+		/* Store new index */
+		USART_RxTail = tmptail;
+		/* Return data */
+		return USART_RxBuf[tmptail];
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+/*************************************************************************
 Send Byte through UART. Enable the UDRE0 ISR. (buffer empty)
 Input:    data 	byte to be send
 Returns:  none

@@ -90,7 +90,7 @@ typedef enum
 *	interrupt is triggered with the PC6 pin.
 *
 */
-#define ADC_CHANNEL		1	
+#define ADC_CHANNEL		0	
 
 
 /**

@@ -38,7 +38,7 @@
 #define PIN_MUX		PIND
 #define MUX_BIT0	5
 #define MUX_BIT1	6
-#define MUX_BITEN	7
+//#define MUX_BITEN	7
 
 
 #define CHANNEL_BT		0
@@ -49,10 +49,13 @@
 #define DELAY_MUX		500			// Delay para estabilizar el integrado en ms
 
 
-#define MUX_INIT()		(DDR_MUX |= (1<<MUX_BIT0)|(1<<MUX_BIT1)|(1<<MUX_BITEN))
+//#define MUX_INIT()		(DDR_MUX |= (1<<MUX_BIT0)|(1<<MUX_BIT1)|(1<<MUX_BITEN))
+//#define MUX_CLEAR()		(PORT_MUX &= ~((1<<MUX_BIT0)|(1<<MUX_BIT1)))
+//#define MUX_ENABLE()	(PORT_MUX &= ~(1<<MUX_BITEN))
+//#define MUX_DISABLE()	(PORT_MUX |= (1<<MUX_BITEN))
+
+#define MUX_INIT()		(DDR_MUX |= (1<<MUX_BIT0)|(1<<MUX_BIT1))
 #define MUX_CLEAR()		(PORT_MUX &= ~((1<<MUX_BIT0)|(1<<MUX_BIT1)))
-#define MUX_ENABLE()	(PORT_MUX &= ~(1<<MUX_BITEN))
-#define MUX_DISABLE()	(PORT_MUX |= (1<<MUX_BITEN))
 
 #define MUX_SEL0()		(PORT_MUX |= (1<<MUX_BIT0))
 #define MUX_SEL1()		(PORT_MUX |= (1<<MUX_BIT1))

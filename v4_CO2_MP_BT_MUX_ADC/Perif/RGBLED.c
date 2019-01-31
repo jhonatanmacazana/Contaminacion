@@ -76,18 +76,21 @@ void RGBLed_Color(uint8_t color)
 }
 
 /*************************************************************************
-Blink the led every second. The value can be modified if needed.
+Blink the led every 250ms. The value can be modified if needed.
 Input:    none
 Returns:  none
 *************************************************************************/
 void RGBLed_Blink(void)
 {
-	RGB_CLEAR();
-	_delay_ms(1000);
-	RGB_ALL();
-	_delay_ms(1000);
+	uint8_t rgb_temp;
+	rgb_temp = PORT_RGB;				// Guarda pines del puerto
+	for (uint8_t i = 0; i < 3; i++)		// Parpadea 3 veces
+	{
+		RGB_CLEAR();
+		_delay_ms(250);
+		RGBLed_Color(BLUE);
+		_delay_ms(250);
+	}
+	PORT_RGB = rgb_temp;				// Regresa pines de puerto
 }
-
-
-
 

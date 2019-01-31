@@ -27,6 +27,8 @@ uint8_t key;
 
 /* Data - sensores */
 uint8_t DATA_MP[4];
+uint16_t DATA_MP25;
+uint16_t DATA_MP10;
 uint16_t DATA_CO2;
 uint16_t DATA_CO; 
 
@@ -34,10 +36,13 @@ uint16_t DATA_CO;
 uint16_t time_global, time_lcd, time_adc, time_bt;
 
 /* Bandera de conexion */
-uint8_t conexion_bt, Flag_Ack;
+uint8_t conexion_bt, Flag_Ack, contador_BT;
 
 /* Nivel de bateria */
 uint16_t bateria;
+
+/* Prototipos */
+void Check_BT(void);
 
 ISR(INT0_vect)
 {
@@ -48,6 +53,10 @@ ISR(INT0_vect)
 
 int main(void)
 {
+	/************************************/
+	/*  Inicialización de componentes	*/
+	/************************************/
+
 	/* Comunicación con sensores y BT */
 	USART_Init(MYUBRR);		// Configura UART
 	MUX_INIT();				// Pines del Mux como salida
@@ -64,13 +73,25 @@ int main(void)
 	/* Control de tiempos */
 	Timer_Init();
 	/* Debug */
-	LED_INIT();				// Led como salida
+	//LED_INIT();				// Led como salida
 	
 	sei();					// Habilita IRQs
+	
+	/************************************/
+	/*        Inicio del programa		*/
+	/************************************/
 
-	/* Cambio de modo */
+	/* Nivel de Bateria */
+	ADC_Start();
+	bateria = ADC_GetValue();
+	if (bateria >=850){ RGBLed_Color(GREEN);}
+	if ((bateria >=200)&(bateria<850)){ RGBLed_Color(YELLOW);}
+	if (bateria <200){ RGBLed_Color(RED);}
+
+
+	/* Cambio de modo de sensores */
 	MPswitchMode(PASSIVE_MODE);
-	COswitchMode(QA_MODE);
+	//COswitchMode(QA_MODE);
 	
 	/* Mensajes iniciales por LCD */
 	LCD_MensajeInicial();		// Inicializando...
@@ -81,13 +102,22 @@ int main(void)
 	setTime(TIMER_ADC, 0);
 	setTime(TIMER_BT, 0);
 	setTime(TIMER_GLOBAL, 0);
+
+	/* Inicialización de variables */
+	key = 1;
+	DATA_CO = 0;
+	conexion_bt = 1;
 	
+	/* Loop Infinito */
 	while (1) 
 	{
+		/* Revisa la conexion BT */
+		//Check_BT();
+		
 		/* Sensores */
 		if(key == 1)
 		{
-			key = 0;
+			//key = 0;
 	
 			/* CO2 */
 			DATA_CO2 = CO2getData();
@@ -96,7 +126,7 @@ int main(void)
 			MPgetData(DATA_MP);
 			
 			/* CO */
-			DATA_CO = COgetData();
+			//DATA_CO = COgetData();
 
 			/* Bluetooth */
 			if (conexion_bt == 1)
@@ -109,9 +139,10 @@ int main(void)
 				USART_Transmit(DATA_MP[1]);
 				USART_Transmit(DATA_MP[2]);
 				USART_Transmit(DATA_MP[3]);
-				USART_Transmit(DATA_CO>>8);
-				USART_Transmit(DATA_CO);
+				//USART_Transmit(DATA_CO>>8);
+				//USART_Transmit(DATA_CO);
 			}
+
 		}
 		
 		
@@ -119,20 +150,30 @@ int main(void)
 		time_adc = getTime(TIMER_ADC);
 		if (time_adc >= 60)
 		{
-			ADC_Start();
-			setTime(TIMER_ADC, 0);
-			bateria = ADC_GetValue();
+			ADC_Start();													// Inicia conversion ADC
+			setTime(TIMER_ADC, 0);											// Reinicia el Timer
+			bateria = ADC_GetValue();										// Calcula el valor
 			if (bateria >=850){ RGBLed_Color(GREEN);}
 			if ((bateria >=200)&(bateria<850)){ RGBLed_Color(YELLOW);}
 			if (bateria <200){ RGBLed_Color(RED);}
 		}
 		
 		/* LCD */
-		LCD_MensajePrincipal();
+		DATA_MP25 = (DATA_MP[0]<<8) | (DATA_MP[1]);
+		DATA_MP10 = (DATA_MP[2]<<8) | (DATA_MP[3]);
+		LCD_MensajePrincipal(DATA_CO2, DATA_MP25, DATA_MP10, DATA_CO);
+		
+		
+		/* Led azul. Conexion BT exitosa */
+		if (contador_BT == 1)
+		{
+			contador_BT++;		// Solo se realiza una vez
+			RGBLed_Blink();		// Led parpadea
+		}
 		
 		/* Mensaje por desconexion */
 		time_bt = getTime(TIMER_BT);
-		if (time_bt == 20)
+		if (time_bt >= 20)
 		{
 			setTime(TIMER_BT, 0);
 			LCD_MensajeConexion(conexion_bt);		// Muestra mensaje por 3 segundos
@@ -141,3 +182,31 @@ int main(void)
 	}
 	return 0;
 }
+
+
+void Check_BT(void)
+{
+	uint8_t temp;
+	temp = USART_ReceiveIf();	// Verifica si hay data nueva. De lo contrario, return 0
+	if (temp == 0x41)			// A
+	{
+		contador_BT++;
+		conexion_bt = 1;		// Conexion: E
+	}
+	if (temp == 0x42)			// B
+	{
+		key = 1;				// Solicita data
+	}
+	if (Flag_Ack == 1)
+	{
+		contador_BT++;
+		if (temp != 0x43)		// C
+		{
+			conexion_bt = 0;	// Conexion: NULL
+			contador_BT = 0;	// Contador reiniciado
+		}
+	}
+}
+
+
+

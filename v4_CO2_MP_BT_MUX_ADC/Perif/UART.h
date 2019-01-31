@@ -64,6 +64,14 @@ void USART_Init(unsigned int ubrr_val);
 */
 uint8_t USART_Receive(void);
 
+
+/**
+ @brief		Receive data from the UART's buffer
+ @param		none
+ @return 	data received from UART
+*/
+uint8_t USART_ReceiveIf(void);
+
 /**
  @brief		Send a byte with the UART 
  @param		data byte to be send through UART

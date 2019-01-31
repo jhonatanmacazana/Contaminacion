@@ -106,9 +106,9 @@ Returns:  none
 void LCD_GotoXY (uint8_t row, uint8_t col)
 {
 	/* Change the cursor*/
-	if (row == 1)
+	if (row == 0)
 	sendCMD(LCD_ROW1 + col);
-	if (row == 2)
+	if (row == 1)
 	sendCMD(LCD_ROW2 + col);
 }
 

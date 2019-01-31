@@ -39,7 +39,7 @@ void led_debug(void)
 /**************************************/
 void Mux_Channel( uint8_t channel)
 {
-	MUX_ENABLE();
+	//MUX_ENABLE();
 	MUX_CLEAR();
 	switch (channel)
 	{
@@ -248,14 +248,14 @@ void LCD_MensajeConexion(uint8_t conexion)
 		LCD_Down();
 		LCD_String("Desconectado    ");
 	}
-	else if (conexion == 1)
+	else if (conexion == 1)				// No se muestra nada
 	{
 		/* Si hay conexion */
-		LCD_Up();
+		/*LCD_Up();
 		LCD_String("Estado:         ");
 		LCD_Down();
 		LCD_String("Conectado       ");
-
+		*/
 	}
 	_delay_ms(3000);
 }
