@@ -53,6 +53,8 @@ ISR(INT0_vect)
 
 int main(void)
 {
+
+	_delay_ms(1500);
 	/************************************/
 	/*  Inicialización de componentes	*/
 	/************************************/
@@ -88,14 +90,15 @@ int main(void)
 	if ((bateria >=200)&(bateria<850)){ RGBLed_Color(YELLOW);}
 	if (bateria <200){ RGBLed_Color(RED);}
 
-
+	
 	/* Cambio de modo de sensores */
 	MPswitchMode(PASSIVE_MODE);
-	//COswitchMode(QA_MODE);
+	COswitchMode(QA_MODE);
 	
 	/* Mensajes iniciales por LCD */
 	LCD_MensajeInicial();		// Inicializando...
-	LCD_MensajeTiempo(4);		// Calentando. Tiempo restante en segundos
+	LCD_MensajeTiempo(10);		// Calentando. Tiempo restante en segundos
+	
 	
 	/* Reinicia el control de timers para los dispositivos */
 	setTime(TIMER_LCD, 0);
@@ -104,20 +107,19 @@ int main(void)
 	setTime(TIMER_GLOBAL, 0);
 
 	/* Inicialización de variables */
-	key = 1;
-	DATA_CO = 0;
-	conexion_bt = 1;
+	key = 0;
+	conexion_bt = 0;
 	
 	/* Loop Infinito */
 	while (1) 
 	{
 		/* Revisa la conexion BT */
-		//Check_BT();
+		Check_BT();
 		
-		/* Sensores */
+		/* Sensores */	
 		if(key == 1)
 		{
-			//key = 0;
+			key = 0;
 	
 			/* CO2 */
 			DATA_CO2 = CO2getData();
@@ -126,21 +128,29 @@ int main(void)
 			MPgetData(DATA_MP);
 			
 			/* CO */
-			//DATA_CO = COgetData();
+			DATA_CO = COgetData();
+			
+			/* Calibra Sensores */
+			//CalibraSensores(DATA_CO2, DATA_MP25, DATA_MP10, DATA_CO);
+		
+			DATA_CO = DATA_CO/5 -2;
+			DATA_CO2 = DATA_CO2 - 340;
+			DATA_MP25 = DATA_MP25 + 6;
+			DATA_MP10 = DATA_MP10 + 10;
 
 			/* Bluetooth */
 			if (conexion_bt == 1)
 			{
 				Flag_Ack = 1;
 				Mux_Channel(CHANNEL_BT);
-				USART_Transmit(DATA_CO2>>8);
-				USART_Transmit(DATA_CO2);
-				USART_Transmit(DATA_MP[0]);
-				USART_Transmit(DATA_MP[1]);
-				USART_Transmit(DATA_MP[2]);
-				USART_Transmit(DATA_MP[3]);
-				//USART_Transmit(DATA_CO>>8);
-				//USART_Transmit(DATA_CO);
+				USART_putNumber(DATA_CO2);
+				USART_putString(",");
+				USART_putNumber(DATA_MP25);
+				USART_putString(",");
+				USART_putNumber(DATA_MP10);
+				USART_putString(",");
+				USART_putNumber(DATA_CO);
+				USART_putString(";");
 			}
 
 		}
@@ -171,13 +181,6 @@ int main(void)
 			RGBLed_Blink();		// Led parpadea
 		}
 		
-		/* Mensaje por desconexion */
-		time_bt = getTime(TIMER_BT);
-		if (time_bt >= 20)
-		{
-			setTime(TIMER_BT, 0);
-			LCD_MensajeConexion(conexion_bt);		// Muestra mensaje por 3 segundos
-		}
 		
 	}
 	return 0;
@@ -187,6 +190,7 @@ int main(void)
 void Check_BT(void)
 {
 	uint8_t temp;
+	Mux_Channel(CHANNEL_BT);
 	temp = USART_ReceiveIf();	// Verifica si hay data nueva. De lo contrario, return 0
 	if (temp == 0x41)			// A
 	{
@@ -197,15 +201,15 @@ void Check_BT(void)
 	{
 		key = 1;				// Solicita data
 	}
-	if (Flag_Ack == 1)
-	{
-		contador_BT++;
-		if (temp != 0x43)		// C
-		{
-			conexion_bt = 0;	// Conexion: NULL
-			contador_BT = 0;	// Contador reiniciado
-		}
-	}
+	//if (Flag_Ack == 1)
+	//{
+		//contador_BT++;
+		//if (temp != 0x43)		// C
+		//{
+			//conexion_bt = 0;	// Conexion: NULL
+			//contador_BT = 0;	// Contador reiniciado
+		//}
+	//}
 }
 
 

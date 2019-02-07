@@ -34,8 +34,8 @@ Returns:  none
 *************************************************************************/
 void RGBLed_Init(void)
 {
-	RGB_CLEAR();										// Turn off the pins
 	DDR_RGB |= (1<<PIN_R)|(1<<PIN_G)|(1<<PIN_B);		// Pins as output
+	RGB_CLEAR();										// Turn off the pins
 }
 
 /*************************************************************************

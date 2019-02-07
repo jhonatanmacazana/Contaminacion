@@ -3,9 +3,11 @@ Archive member included to satisfy reference by file (symbol)
 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
                               d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o (exit)
 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
-                              Perif/comps.o (__do_copy_data)
+                              main.o (__do_copy_data)
 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
                               main.o (__do_clear_bss)
+d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+                              main.o (__umulhisi3)
 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
                               Perif/LCDI2C.o (__itoa_ncheck)
 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
@@ -42,8 +44,6 @@ Discarded input sections
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- .text.Check_BT
-                0x00000000       0x56 main.o
  .text          0x00000000        0x0 Perif/ADC.o
  .data          0x00000000        0x0 Perif/ADC.o
  .bss           0x00000000        0x0 Perif/ADC.o
@@ -55,6 +55,10 @@ Discarded input sections
  .bss           0x00000000        0x0 Perif/comps.o
  .text.led_debug
                 0x00000000       0x18 Perif/comps.o
+ .text.LCD_MensajeConexion
+                0x00000000       0x34 Perif/comps.o
+ .text.CalibraSensores
+                0x00000000        0x2 Perif/comps.o
  .text          0x00000000        0x0 Perif/LCDI2C.o
  .data          0x00000000        0x0 Perif/LCDI2C.o
  .bss           0x00000000        0x0 Perif/LCDI2C.o
@@ -66,19 +70,9 @@ Discarded input sections
  .text          0x00000000        0x0 Perif/sensors.o
  .data          0x00000000        0x0 Perif/sensors.o
  .bss           0x00000000        0x0 Perif/sensors.o
- .text.COswitchMode
-                0x00000000       0x46 Perif/sensors.o
- .text.COgetData
-                0x00000000       0xa6 Perif/sensors.o
  .text          0x00000000        0x0 Perif/UART.o
  .data          0x00000000        0x0 Perif/UART.o
  .bss           0x00000000        0x0 Perif/UART.o
- .text.USART_ReceiveIf
-                0x00000000       0x26 Perif/UART.o
- .text.USART_putString
-                0x00000000       0x1e Perif/UART.o
- .text.USART_putNumber
-                0x00000000       0x2e Perif/UART.o
  .text          0x00000000        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  .data          0x00000000        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  .bss           0x00000000        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
@@ -127,6 +121,20 @@ Discarded input sections
                 0x00000000        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
                 0x00000000        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
+ .text          0x00000000        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+ .data          0x00000000        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+ .bss           0x00000000        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc   0x00000000        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
  .text          0x00000000        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
  .data          0x00000000        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
  .bss           0x00000000        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
@@ -267,7 +275,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xbb6
+.text           0x00000000      0xe22
  *(.vectors)
  .vectors       0x00000000       0x68 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
                 0x00000000                __vector_default
@@ -352,125 +360,143 @@ END GROUP
  .text.__vector_1
                 0x000000a6       0x1e main.o
                 0x000000a6                __vector_1
- .text.main     0x000000c4      0x202 main.o
-                0x000000c4                main
+ .text.Check_BT
+                0x000000c4       0x2c main.o
+                0x000000c4                Check_BT
+ .text.main     0x000000f0      0x266 main.o
+                0x000000f0                main
  .text.ADC_Init
-                0x000002c6       0x16 Perif/ADC.o
-                0x000002c6                ADC_Init
+                0x00000356       0x16 Perif/ADC.o
+                0x00000356                ADC_Init
  .text.ADC_Start
-                0x000002dc       0x12 Perif/ADC.o
-                0x000002dc                ADC_Start
+                0x0000036c       0x12 Perif/ADC.o
+                0x0000036c                ADC_Start
  .text.__vector_21
-                0x000002ee       0x4a Perif/ADC.o
-                0x000002ee                __vector_21
+                0x0000037e       0x4a Perif/ADC.o
+                0x0000037e                __vector_21
  .text.ADC_GetValue
-                0x00000338       0x2c Perif/ADC.o
-                0x00000338                ADC_GetValue
+                0x000003c8       0x2c Perif/ADC.o
+                0x000003c8                ADC_GetValue
  .text.button_Init
-                0x00000364        0xe Perif/comps.o
-                0x00000364                button_Init
+                0x000003f4        0xe Perif/comps.o
+                0x000003f4                button_Init
  .text.Mux_Channel
-                0x00000372       0x20 Perif/comps.o
-                0x00000372                Mux_Channel
+                0x00000402       0x20 Perif/comps.o
+                0x00000402                Mux_Channel
  .text.Timer_Init
-                0x00000392       0x28 Perif/comps.o
-                0x00000392                Timer_Init
- .text.setTime  0x000003ba       0x38 Perif/comps.o
-                0x000003ba                setTime
- .text.getTime  0x000003f2       0x3e Perif/comps.o
-                0x000003f2                getTime
+                0x00000422       0x28 Perif/comps.o
+                0x00000422                Timer_Init
+ .text.setTime  0x0000044a       0x38 Perif/comps.o
+                0x0000044a                setTime
+ .text.getTime  0x00000482       0x3e Perif/comps.o
+                0x00000482                getTime
  .text.__vector_11
-                0x00000430       0x64 Perif/comps.o
-                0x00000430                __vector_11
+                0x000004c0       0x64 Perif/comps.o
+                0x000004c0                __vector_11
  .text.LCD_MensajeInicial
-                0x00000494       0x6a Perif/comps.o
-                0x00000494                LCD_MensajeInicial
+                0x00000524       0x6a Perif/comps.o
+                0x00000524                LCD_MensajeInicial
  .text.LCD_MensajeTiempo
-                0x000004fe       0x66 Perif/comps.o
-                0x000004fe                LCD_MensajeTiempo
+                0x0000058e       0x66 Perif/comps.o
+                0x0000058e                LCD_MensajeTiempo
  .text.LCD_MensajePrincipal
-                0x00000564      0x104 Perif/comps.o
-                0x00000564                LCD_MensajePrincipal
- .text.LCD_MensajeConexion
-                0x00000668       0x34 Perif/comps.o
-                0x00000668                LCD_MensajeConexion
+                0x000005f4      0x198 Perif/comps.o
+                0x000005f4                LCD_MensajePrincipal
  .text.I2C_Init
-                0x0000069c       0x12 Perif/LCDI2C.o
-                0x0000069c                I2C_Init
+                0x0000078c       0x12 Perif/LCDI2C.o
+                0x0000078c                I2C_Init
  .text.I2C_Start
-                0x000006ae       0x26 Perif/LCDI2C.o
-                0x000006ae                I2C_Start
+                0x0000079e       0x26 Perif/LCDI2C.o
+                0x0000079e                I2C_Start
  .text.I2C_Stop
-                0x000006d4        0xc Perif/LCDI2C.o
-                0x000006d4                I2C_Stop
+                0x000007c4        0xc Perif/LCDI2C.o
+                0x000007c4                I2C_Stop
  .text.I2C_Transmit
-                0x000006e0       0x16 Perif/LCDI2C.o
-                0x000006e0                I2C_Transmit
- .text.sendCMD  0x000006f6       0x58 Perif/LCDI2C.o
-                0x000006f6                sendCMD
+                0x000007d0       0x16 Perif/LCDI2C.o
+                0x000007d0                I2C_Transmit
+ .text.sendCMD  0x000007e6       0x58 Perif/LCDI2C.o
+                0x000007e6                sendCMD
  .text.LCD_Init
-                0x0000074e       0x20 Perif/LCDI2C.o
-                0x0000074e                LCD_Init
+                0x0000083e       0x20 Perif/LCDI2C.o
+                0x0000083e                LCD_Init
  .text.LCD_GotoXY
-                0x0000076e       0x1c Perif/LCDI2C.o
-                0x0000076e                LCD_GotoXY
+                0x0000085e       0x1c Perif/LCDI2C.o
+                0x0000085e                LCD_GotoXY
  .text.sendData
-                0x0000078a       0x58 Perif/LCDI2C.o
-                0x0000078a                sendData
+                0x0000087a       0x58 Perif/LCDI2C.o
+                0x0000087a                sendData
  .text.LCD_String
-                0x000007e2       0x1e Perif/LCDI2C.o
-                0x000007e2                LCD_String
+                0x000008d2       0x1e Perif/LCDI2C.o
+                0x000008d2                LCD_String
  .text.LCD_Number
-                0x00000800       0x2e Perif/LCDI2C.o
-                0x00000800                LCD_Number
+                0x000008f0       0x2e Perif/LCDI2C.o
+                0x000008f0                LCD_Number
  .text.RGBLed_Init
-                0x0000082e        0xe Perif/RGBLED.o
-                0x0000082e                RGBLed_Init
+                0x0000091e        0xe Perif/RGBLED.o
+                0x0000091e                RGBLed_Init
  .text.RGBLed_Color
-                0x0000083c       0x40 Perif/RGBLED.o
-                0x0000083c                RGBLed_Color
+                0x0000092c       0x40 Perif/RGBLED.o
+                0x0000092c                RGBLed_Color
  .text.RGBLed_Blink
-                0x0000087c       0x38 Perif/RGBLED.o
-                0x0000087c                RGBLed_Blink
+                0x0000096c       0x38 Perif/RGBLED.o
+                0x0000096c                RGBLed_Blink
  .text.CO2getData
-                0x000008b4       0xa0 Perif/sensors.o
-                0x000008b4                CO2getData
+                0x000009a4       0xa0 Perif/sensors.o
+                0x000009a4                CO2getData
  .text.MPswitchMode
-                0x00000954       0x48 Perif/sensors.o
-                0x00000954                MPswitchMode
+                0x00000a44       0x48 Perif/sensors.o
+                0x00000a44                MPswitchMode
  .text.MPgetData
-                0x0000099c       0xa8 Perif/sensors.o
-                0x0000099c                MPgetData
+                0x00000a8c       0xa8 Perif/sensors.o
+                0x00000a8c                MPgetData
+ .text.COswitchMode
+                0x00000b34       0x46 Perif/sensors.o
+                0x00000b34                COswitchMode
+ .text.COgetData
+                0x00000b7a       0xa6 Perif/sensors.o
+                0x00000b7a                COgetData
  .text.USART_Init
-                0x00000a44       0x2c Perif/UART.o
-                0x00000a44                USART_Init
+                0x00000c20       0x2c Perif/UART.o
+                0x00000c20                USART_Init
  .text.__vector_18
-                0x00000a70       0x38 Perif/UART.o
-                0x00000a70                __vector_18
+                0x00000c4c       0x38 Perif/UART.o
+                0x00000c4c                __vector_18
  .text.__vector_19
-                0x00000aa8       0x54 Perif/UART.o
-                0x00000aa8                __vector_19
+                0x00000c84       0x54 Perif/UART.o
+                0x00000c84                __vector_19
  .text.USART_Receive
-                0x00000afc       0x22 Perif/UART.o
-                0x00000afc                USART_Receive
+                0x00000cd8       0x22 Perif/UART.o
+                0x00000cd8                USART_Receive
+ .text.USART_ReceiveIf
+                0x00000cfa       0x26 Perif/UART.o
+                0x00000cfa                USART_ReceiveIf
  .text.USART_Transmit
-                0x00000b1e       0x2a Perif/UART.o
-                0x00000b1e                USART_Transmit
+                0x00000d20       0x2a Perif/UART.o
+                0x00000d20                USART_Transmit
+ .text.USART_putString
+                0x00000d4a       0x1e Perif/UART.o
+                0x00000d4a                USART_putString
+ .text.USART_putNumber
+                0x00000d68       0x2e Perif/UART.o
+                0x00000d68                USART_putNumber
+ .text.libgcc.mul
+                0x00000d96       0x1e d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+                0x00000d96                __umulhisi3
  .text.avr-libc
-                0x00000b48       0x16 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
-                0x00000b48                __itoa_ncheck
+                0x00000db4       0x16 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
+                0x00000db4                __itoa_ncheck
  .text.avr-libc
-                0x00000b5e       0x34 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
-                0x00000b5e                __utoa_ncheck
-                0x00000b60                __utoa_common
+                0x00000dca       0x34 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
+                0x00000dca                __utoa_ncheck
+                0x00000dcc                __utoa_common
  .text.avr-libc
-                0x00000b92       0x20 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strrev.o)
-                0x00000b92                strrev
-                0x00000bb2                . = ALIGN (0x2)
+                0x00000dfe       0x20 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strrev.o)
+                0x00000dfe                strrev
+                0x00000e1e                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000bb2        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00000bb2                _exit
-                0x00000bb2                exit
+ .fini9         0x00000e1e        0x0 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00000e1e                _exit
+                0x00000e1e                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -489,11 +515,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000bb2        0x4 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000e1e        0x4 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000bb6                _etext = .
+                0x00000e22                _etext = .
 
-.data           0x00800100       0xe4 load address 0x00000bb6
+.data           0x00800100       0xe8 load address 0x00000e22
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -502,65 +528,67 @@ END GROUP
  .rodata        0x00800100        0x9 Perif/sensors.o
  *(.rodata*)
  .rodata.str1.1
-                0x00800109       0xdb Perif/comps.o
+                0x00800109        0x4 main.o
+ .rodata.str1.1
+                0x0080010d       0xdb Perif/comps.o
                                  0xe6 (size before relaxing)
  *(.gnu.linkonce.r*)
-                0x008001e4                . = ALIGN (0x2)
-                0x008001e4                _edata = .
-                0x008001e4                PROVIDE (__data_end, .)
+                0x008001e8                . = ALIGN (0x2)
+                0x008001e8                _edata = .
+                0x008001e8                PROVIDE (__data_end, .)
 
-.bss            0x008001e4       0x49
-                0x008001e4                PROVIDE (__bss_start, .)
+.bss            0x008001e8       0x49
+                0x008001e8                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.ADC_Tail  0x008001e4        0x1 Perif/ADC.o
- .bss.ADC_Head  0x008001e5        0x1 Perif/ADC.o
+ .bss.ADC_Tail  0x008001e8        0x1 Perif/ADC.o
+ .bss.ADC_Head  0x008001e9        0x1 Perif/ADC.o
  .bss.ADC_Buffer
-                0x008001e6       0x10 Perif/ADC.o
+                0x008001ea       0x10 Perif/ADC.o
  .bss.ADC_status
-                0x008001f6        0x1 Perif/ADC.o
+                0x008001fa        0x1 Perif/ADC.o
  .bss.USART_TxTail
-                0x008001f7        0x1 Perif/UART.o
+                0x008001fb        0x1 Perif/UART.o
  .bss.USART_TxHead
-                0x008001f8        0x1 Perif/UART.o
+                0x008001fc        0x1 Perif/UART.o
  .bss.USART_TxBuf
-                0x008001f9        0x8 Perif/UART.o
+                0x008001fd        0x8 Perif/UART.o
  .bss.USART_RxTail
-                0x00800201        0x1 Perif/UART.o
+                0x00800205        0x1 Perif/UART.o
  .bss.USART_RxHead
-                0x00800202        0x1 Perif/UART.o
+                0x00800206        0x1 Perif/UART.o
  .bss.USART_RxBuf
-                0x00800203        0x8 Perif/UART.o
+                0x00800207        0x8 Perif/UART.o
  *(COMMON)
- COMMON         0x0080020b       0x1a main.o
-                0x0080020b                conexion_bt
-                0x0080020c                time_global
-                0x0080020e                time_bt
-                0x00800210                bateria
-                0x00800212                time_adc
-                0x00800214                DATA_CO
-                0x00800216                Flag_Ack
-                0x00800217                DATA_MP
-                0x0080021b                DATA_CO2
-                0x0080021d                time_lcd
-                0x0080021f                key
-                0x00800220                DATA_MP25
-                0x00800222                DATA_MP10
-                0x00800224                contador_BT
- COMMON         0x00800225        0x8 Perif/comps.o
-                0x00800225                segundosLCD
-                0x00800227                segundos
-                0x00800229                segundosBT
-                0x0080022b                segundosADC
-                0x0080022d                PROVIDE (__bss_end, .)
-                0x00000bb6                __data_load_start = LOADADDR (.data)
-                0x00000c9a                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x0080020f       0x1a main.o
+                0x0080020f                conexion_bt
+                0x00800210                time_global
+                0x00800212                time_bt
+                0x00800214                bateria
+                0x00800216                time_adc
+                0x00800218                DATA_CO
+                0x0080021a                Flag_Ack
+                0x0080021b                DATA_MP
+                0x0080021f                DATA_CO2
+                0x00800221                time_lcd
+                0x00800223                key
+                0x00800224                DATA_MP25
+                0x00800226                DATA_MP10
+                0x00800228                contador_BT
+ COMMON         0x00800229        0x8 Perif/comps.o
+                0x00800229                segundosLCD
+                0x0080022b                segundos
+                0x0080022d                segundosBT
+                0x0080022f                segundosADC
+                0x00800231                PROVIDE (__bss_end, .)
+                0x00000e22                __data_load_start = LOADADDR (.data)
+                0x00000f0a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080022d        0x0
+.noinit         0x00800231        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x0080022d                _end = .
+                0x00800231                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -631,96 +659,96 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x210
+.debug_aranges  0x00000000      0x218
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x30 main.o
  .debug_aranges
                 0x00000030       0x38 Perif/ADC.o
  .debug_aranges
-                0x00000068       0x70 Perif/comps.o
+                0x00000068       0x78 Perif/comps.o
  .debug_aranges
-                0x000000d8       0x70 Perif/LCDI2C.o
+                0x000000e0       0x70 Perif/LCDI2C.o
  .debug_aranges
-                0x00000148       0x30 Perif/RGBLED.o
+                0x00000150       0x30 Perif/RGBLED.o
  .debug_aranges
-                0x00000178       0x40 Perif/sensors.o
+                0x00000180       0x40 Perif/sensors.o
  .debug_aranges
-                0x000001b8       0x58 Perif/UART.o
+                0x000001c0       0x58 Perif/UART.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x2666
+.debug_info     0x00000000     0x284f
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5f4 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
- .debug_info    0x000005f4      0x595 main.o
- .debug_info    0x00000b89      0x1bb Perif/ADC.o
- .debug_info    0x00000d44      0x901 Perif/comps.o
- .debug_info    0x00001645      0x519 Perif/LCDI2C.o
- .debug_info    0x00001b5e      0x1b4 Perif/RGBLED.o
- .debug_info    0x00001d12      0x5c2 Perif/sensors.o
- .debug_info    0x000022d4      0x392 Perif/UART.o
+ .debug_info    0x000005f4      0x691 main.o
+ .debug_info    0x00000c85      0x1bb Perif/ADC.o
+ .debug_info    0x00000e40      0x9ee Perif/comps.o
+ .debug_info    0x0000182e      0x519 Perif/LCDI2C.o
+ .debug_info    0x00001d47      0x1b4 Perif/RGBLED.o
+ .debug_info    0x00001efb      0x5c2 Perif/sensors.o
+ .debug_info    0x000024bd      0x392 Perif/UART.o
 
-.debug_abbrev   0x00000000      0xf3c
+.debug_abbrev   0x00000000      0xfeb
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x5a2 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
- .debug_abbrev  0x000005a2      0x103 main.o
- .debug_abbrev  0x000006a5       0xd6 Perif/ADC.o
- .debug_abbrev  0x0000077b      0x1eb Perif/comps.o
- .debug_abbrev  0x00000966      0x1c2 Perif/LCDI2C.o
- .debug_abbrev  0x00000b28      0x12f Perif/RGBLED.o
- .debug_abbrev  0x00000c57      0x14e Perif/sensors.o
- .debug_abbrev  0x00000da5      0x197 Perif/UART.o
+ .debug_abbrev  0x000005a2      0x16b main.o
+ .debug_abbrev  0x0000070d       0xd6 Perif/ADC.o
+ .debug_abbrev  0x000007e3      0x232 Perif/comps.o
+ .debug_abbrev  0x00000a15      0x1c2 Perif/LCDI2C.o
+ .debug_abbrev  0x00000bd7      0x12f Perif/RGBLED.o
+ .debug_abbrev  0x00000d06      0x14e Perif/sensors.o
+ .debug_abbrev  0x00000e54      0x197 Perif/UART.o
 
-.debug_line     0x00000000     0x11c4
+.debug_line     0x00000000     0x1253
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000       0x1a d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
- .debug_line    0x0000001a      0x2ef main.o
- .debug_line    0x00000309      0x130 Perif/ADC.o
- .debug_line    0x00000439      0x454 Perif/comps.o
- .debug_line    0x0000088d      0x2ad Perif/LCDI2C.o
- .debug_line    0x00000b3a      0x1d6 Perif/RGBLED.o
- .debug_line    0x00000d10      0x289 Perif/sensors.o
- .debug_line    0x00000f99      0x22b Perif/UART.o
+ .debug_line    0x0000001a      0x354 main.o
+ .debug_line    0x0000036e      0x130 Perif/ADC.o
+ .debug_line    0x0000049e      0x47e Perif/comps.o
+ .debug_line    0x0000091c      0x2ad Perif/LCDI2C.o
+ .debug_line    0x00000bc9      0x1d6 Perif/RGBLED.o
+ .debug_line    0x00000d9f      0x289 Perif/sensors.o
+ .debug_line    0x00001028      0x22b Perif/UART.o
 
-.debug_frame    0x00000000      0x514
+.debug_frame    0x00000000      0x524
  *(.debug_frame)
  .debug_frame   0x00000000       0x54 main.o
  .debug_frame   0x00000054       0x74 Perif/ADC.o
- .debug_frame   0x000000c8      0x11c Perif/comps.o
- .debug_frame   0x000001e4      0x100 Perif/LCDI2C.o
- .debug_frame   0x000002e4       0x50 Perif/RGBLED.o
- .debug_frame   0x00000334       0xf4 Perif/sensors.o
- .debug_frame   0x00000428       0xec Perif/UART.o
+ .debug_frame   0x000000c8      0x12c Perif/comps.o
+ .debug_frame   0x000001f4      0x100 Perif/LCDI2C.o
+ .debug_frame   0x000002f4       0x50 Perif/RGBLED.o
+ .debug_frame   0x00000344       0xf4 Perif/sensors.o
+ .debug_frame   0x00000438       0xec Perif/UART.o
 
-.debug_str      0x00000000      0x865
+.debug_str      0x00000000      0x875
  *(.debug_str)
  .debug_str     0x00000000      0x208 d:/aplicaciones/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/crtatmega328p.o
- .debug_str     0x00000208      0x30c main.o
-                                0x345 (size before relaxing)
- .debug_str     0x00000514       0x7f Perif/ADC.o
+ .debug_str     0x00000208      0x36b main.o
+                                0x3a4 (size before relaxing)
+ .debug_str     0x00000573       0x7f Perif/ADC.o
                                 0x21e (size before relaxing)
- .debug_str     0x00000593      0x10f Perif/comps.o
-                                0x306 (size before relaxing)
- .debug_str     0x000006a2       0x8a Perif/LCDI2C.o
+ .debug_str     0x000005f2       0xe8 Perif/comps.o
+                                0x31b (size before relaxing)
+ .debug_str     0x000006da       0x8a Perif/LCDI2C.o
                                 0x24e (size before relaxing)
- .debug_str     0x0000072c       0x21 Perif/RGBLED.o
+ .debug_str     0x00000764       0x21 Perif/RGBLED.o
                                 0x1fa (size before relaxing)
- .debug_str     0x0000074d       0x71 Perif/sensors.o
+ .debug_str     0x00000785       0x69 Perif/sensors.o
                                 0x238 (size before relaxing)
- .debug_str     0x000007be       0xa7 Perif/UART.o
+ .debug_str     0x000007ee       0x87 Perif/UART.o
                                 0x2a1 (size before relaxing)
 
-.debug_loc      0x00000000     0x12a7
+.debug_loc      0x00000000     0x13f3
  *(.debug_loc)
- .debug_loc     0x00000000       0x65 main.o
- .debug_loc     0x00000065       0xbf Perif/ADC.o
- .debug_loc     0x00000124      0x572 Perif/comps.o
- .debug_loc     0x00000696      0x412 Perif/LCDI2C.o
- .debug_loc     0x00000aa8      0x11f Perif/RGBLED.o
- .debug_loc     0x00000bc7      0x407 Perif/sensors.o
- .debug_loc     0x00000fce      0x2d9 Perif/UART.o
+ .debug_loc     0x00000000       0xa2 main.o
+ .debug_loc     0x000000a2       0xbf Perif/ADC.o
+ .debug_loc     0x00000161      0x681 Perif/comps.o
+ .debug_loc     0x000007e2      0x412 Perif/LCDI2C.o
+ .debug_loc     0x00000bf4      0x11f Perif/RGBLED.o
+ .debug_loc     0x00000d13      0x407 Perif/sensors.o
+ .debug_loc     0x0000111a      0x2d9 Perif/UART.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -740,15 +768,15 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x1a0
+.debug_ranges   0x00000000      0x1a8
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x20 main.o
  .debug_ranges  0x00000020       0x28 Perif/ADC.o
- .debug_ranges  0x00000048       0x60 Perif/comps.o
- .debug_ranges  0x000000a8       0x60 Perif/LCDI2C.o
- .debug_ranges  0x00000108       0x20 Perif/RGBLED.o
- .debug_ranges  0x00000128       0x30 Perif/sensors.o
- .debug_ranges  0x00000158       0x48 Perif/UART.o
+ .debug_ranges  0x00000048       0x68 Perif/comps.o
+ .debug_ranges  0x000000b0       0x60 Perif/LCDI2C.o
+ .debug_ranges  0x00000110       0x20 Perif/RGBLED.o
+ .debug_ranges  0x00000130       0x30 Perif/sensors.o
+ .debug_ranges  0x00000160       0x48 Perif/UART.o
 
 .debug_macro
  *(.debug_macro)

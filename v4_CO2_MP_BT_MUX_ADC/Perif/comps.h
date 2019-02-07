@@ -96,5 +96,7 @@ void LCD_MensajeTiempo(uint16_t cuenta);
 void LCD_MensajePrincipal(uint16_t co2data, uint16_t mp25data, uint16_t mp10data, uint16_t codata);
 void LCD_MensajeConexion(uint8_t conexion);
 
+void CalibraSensores(uint16_t co2data, uint16_t mp25data, uint16_t mp10data, uint16_t codata);
+
 
 #endif /* COMPS_H_ */

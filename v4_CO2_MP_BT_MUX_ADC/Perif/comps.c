@@ -18,7 +18,7 @@
 void button_Init(void)
 {
 	/* Rising Edge */
-	EICRA |= (2 << ISC00);
+	EICRA |= (3 << ISC00);
 	/* Activa INT0*/
 	EIMSK |= (1 << INT0);
 }
@@ -213,7 +213,9 @@ void LCD_MensajePrincipal(uint16_t co2data, uint16_t mp25data, uint16_t mp10data
 		LCD_Up();
 		LCD_String("PM 2.5          ");
 		LCD_Down();
-		LCD_Number(mp25data);
+		LCD_Number(mp25data/1000);
+		LCD_String(".");
+		LCD_Number(mp25data%1000);
 		LCD_String(" ppm            ");
 	}
 	else if (tiempo < (4 * TIEMPO_SENSORES))
@@ -221,7 +223,9 @@ void LCD_MensajePrincipal(uint16_t co2data, uint16_t mp25data, uint16_t mp10data
 		LCD_Up();
 		LCD_String("PM 10           ");
 		LCD_Down();
-		LCD_Number(mp10data);
+		LCD_Number(mp10data/1000);
+		LCD_String(".");
+		LCD_Number(mp10data%1000);
 		LCD_String(" ppm            ");
 	}
 	else if (tiempo < (5 * TIEMPO_SENSORES) )
@@ -258,4 +262,24 @@ void LCD_MensajeConexion(uint8_t conexion)
 		*/
 	}
 	_delay_ms(3000);
+}
+
+
+
+
+/**************************************/
+/*  		   Sensores				*/
+/**************************************/
+
+void CalibraSensores(uint16_t co2data, uint16_t mp25data, uint16_t mp10data, uint16_t codata)
+{
+	uint16_t temp;
+	temp = codata;
+	codata = temp/5;
+	
+	
+	temp = co2data;
+	co2data = temp - 330;
+	
+	
 }
